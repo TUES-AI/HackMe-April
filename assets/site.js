@@ -41,7 +41,8 @@ function buildHeader() {
           </span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
+          <span class="nav-toggle-text">MENU</span>
+          <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
         </button>
         <nav class="site-nav" aria-label="Main navigation">
           ${nav}
