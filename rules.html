@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Правила | HackMe April</title>
+    <meta name="description" content="Правила, участие, repo изисквания и AI policy за HackMe April.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body data-root="./" data-page="rules">
+    <div id="site-header"></div>
+
+    <main class="page-shell">
+      <section class="page-banner reveal visible">
+        <p class="eyebrow">Ruleset</p>
+        <h1>Ясни правила, за да се оценява честно</h1>
+        <p>HackMe April е optional, но standards-ът е реален. Целта е да се учите, да се организирате умно и да оставите repo trail, който показва истински engineering процес.</p>
+      </section>
+
+      <section class="section reveal">
+        <div class="rules-grid">
+          <article class="rule-card">
+            <div class="track-tag">Teams</div>
+            <h2 class="track-title">1 до 4 души</h2>
+            <p>Може solo, duo или малък team. Изберете си един primary track и изградете repo-то около него. Cross-track идеи са allowed, но оценяването е по обявения main route.</p>
+          </article>
+          <article class="rule-card">
+            <div class="track-tag">Timeline</div>
+            <h2 class="track-title">2 → 18 април</h2>
+            <p>Стартът е на 2 април. На 4 април има Google Meet за help/Q&amp;A. На 18 април са demo защитите и награждаването.</p>
+          </article>
+          <article class="rule-card">
+            <div class="track-tag">Scoring Core</div>
+            <h2 class="track-title">Process-first</h2>
+            <p>Журито търси research trail, quality experiments, debugging и honest reflection. Финалният artifact е плюс, но не е всичко.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Participation</p>
+            <h2 class="section-title">Какво е задължително</h2>
+          </div>
+          <p class="section-copy">Ако искате да ви се брои участието за награди, repo-то трябва да може да се чете като история на вашето мислене, а не като dump на финалния код.</p>
+        </div>
+        <div class="definition-grid">
+          <article class="definition-card">
+            <h3 class="track-title">Repo evidence</h3>
+            <ul class="check-list">
+              <li>Редовни commits по research sessions, не един gigantic финален push.</li>
+              <li>`README.md` с ясно описание на goal-а и избрания track.</li>
+              <li>`AI_USAGE.md` с честно описание как е използван AI.</li>
+              <li>`SOURCES.md` или еквивалентен файл със site/video/doc references.</li>
+            </ul>
+          </article>
+          <article class="definition-card">
+            <h3 class="track-title">Session notes</h3>
+            <ul class="check-list">
+              <li>Каква беше хипотезата ви за конкретната сесия.</li>
+              <li>Какво тествахте и защо точно това.</li>
+              <li>Какво се счупи, как го разбрахте и какво променихте.</li>
+              <li>Какъв е next step-ът след сесията.</li>
+            </ul>
+          </article>
+          <article class="definition-card">
+            <h3 class="track-title">Final defense</h3>
+            <ul class="check-list">
+              <li>4-5 минути на team.</li>
+              <li>Покажете един силен insight, един failure и един future improvement.</li>
+              <li>Подгответе се да обясните защо сте отхвърлили други идеи.</li>
+            </ul>
+          </article>
+          <article class="definition-card">
+            <h3 class="track-title">Track declaration</h3>
+            <ul class="check-list">
+              <li>Обявете main track още в началото в `README.md`.</li>
+              <li>Може да borrow-нете идеи от други tracks.</li>
+              <li>Оценяването ще е спрямо problem framing-а на declared track-а.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">AI Policy</p>
+            <h2 class="section-title">AI е разрешен. Скриването му не е smart.</h2>
+          </div>
+          <p class="section-copy">Идеята не е да се преструваме, че AI не съществува. Идеята е да покажете кога ви е помогнал, кога ви е подвел и как сте използвали собственото си мислене, за да филтрирате output-а.</p>
+        </div>
+        <div class="rules-grid">
+          <article class="rule-card">
+            <h3 class="track-title">Allowed</h3>
+            <ul class="clean-list">
+              <li>AI за research, prototyping, code suggestions и brainstorming.</li>
+              <li>AI за обяснения на concepts, документация и tool discovery.</li>
+              <li>AI-assisted debugging, ако е записано какво е предложил и кое сте запазили.</li>
+            </ul>
+          </article>
+          <article class="rule-card">
+            <h3 class="track-title">Required Disclosure</h3>
+            <ul class="clean-list">
+              <li>Кои модели / tools сте използвали.</li>
+              <li>За какви задачи сте ги ползвали.</li>
+              <li>Кое от output-а сте отхвърлили и защо.</li>
+              <li>Поне един пример къде AI е грешил или е бил плитък.</li>
+            </ul>
+          </article>
+          <article class="rule-card">
+            <h3 class="track-title">Not Enough</h3>
+            <ul class="clean-list">
+              <li>Repo, пълен само с AI-generated code, без thinking trail.</li>
+              <li>Скрити prompts и нулеви notes какво е станало в процеса.</li>
+              <li>Copy-paste без собствена валидация и без разбиране как работи.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Hints &amp; Fairness</p>
+            <h2 class="section-title">Подсказки ще има, но няма да убиват challenge-а</h2>
+          </div>
+          <p class="section-copy">Ако даден track масово удари тухлена стена, ще има hint drops или live explanation в Google Meet. Целта е challenge-ът да е труден, но researchable.</p>
+        </div>
+        <div class="definition-grid">
+          <article class="definition-card">
+            <h3 class="track-title">Crypto</h3>
+            <p>Hint-овете могат да намекнат дали cipher-ът е character-level, token-level или layered, без да дават готов solver path.</p>
+          </article>
+          <article class="definition-card">
+            <h3 class="track-title">AutoGrad</h3>
+            <p>Ще се помага с dataset framing, metrics и sanity checks, но не и с "best hyperparameters" готови рецепти.</p>
+          </article>
+          <article class="definition-card">
+            <h3 class="track-title">Game / Toolsmith</h3>
+            <p>Може да получите feedback за scope, UX или evaluation setup, ако идеята е добра, но implementation-ът е твърде голям.</p>
+          </article>
+          <article class="definition-card">
+            <h3 class="track-title">Judging fairness</h3>
+            <p>Има winners по track, за да не се състезават директно несравними неща. Може да има и една обща награда за best overall research team.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-strip reveal">
+        <div class="section-header" style="margin-bottom: 0;">
+          <div>
+            <p class="eyebrow">Next Move</p>
+            <h2 class="section-title">Ако правилата ти звучат добре, отвори workflow page-а</h2>
+          </div>
+          <p class="section-copy">Там е practical guide-ът как точно да структурирате commits, session folders и notes, така че repo-то ви да изглежда като силно research portfolio, а не като архив.</p>
+        </div>
+        <div class="button-row" style="margin-top: 18px;">
+          <a class="btn" href="workflow.html">Към workflow</a>
+          <a class="btn secondary" href="grading.html">Виж rubric-а</a>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="assets/site.js"></script>
+  </body>
+</html>

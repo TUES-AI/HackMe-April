@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cipher Hunters | HackMe April</title>
+    <meta name="description" content="Crypto track за HackMe April: layered ciphers, hypotheses, tooling и research-first solving.">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
+  </head>
+  <body data-root="../" data-page="crypto">
+    <div id="site-header"></div>
+
+    <main class="page-shell">
+      <section class="page-banner reveal visible">
+        <p class="eyebrow">Track 01</p>
+        <h1>Cipher Hunters</h1>
+        <p>Това е track за хора, които обичат pattern analysis, tooling, reverse engineering и малко controlled paranoia. Целта не е просто да познаеш cipher-а, а да build-неш reasoning trail как стигаш до decode path-а.</p>
+      </section>
+
+      <section class="section reveal">
+        <div class="definition-grid">
+          <article class="definition-card">
+            <h3 class="track-title">Main Objective</h3>
+            <p>Да decipher-нете предоставения encrypted text или да стигнете възможно най-далеч с аргументиран solver approach.</p>
+          </article>
+          <article class="definition-card">
+            <h3 class="track-title">What wins here</h3>
+            <p>Силен score идва от hypotheses, code experiments, rejected ideas и ясно показан path от mystery към understanding.</p>
+          </article>
+          <article class="definition-card">
+            <h3 class="track-title">What does not</h3>
+            <p>"Пробвахме 50 random websites" не е strategy. И brute force without framing не е research.</p>
+          </article>
+          <article class="definition-card">
+            <h3 class="track-title">Allowed helpers</h3>
+            <p>Python scripts, notebooks, frequency counters, token tests, AI for research and even visualization tools са welcome.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Difficulty Ladder</p>
+            <h2 class="section-title">Една тема, няколко слоя трудност</h2>
+          </div>
+          <p class="section-copy">Идеята не е три totally unrelated puzzles. Идеята е да build-нете техники и intuition от по-достъпни patterns към по-модерни twists.</p>
+        </div>
+        <div class="ideas-grid">
+          <article class="idea-card">
+            <div class="track-tag">Level 1</div>
+            <h3 class="track-title">Classical structure</h3>
+            <p>Очаквайте natural language plaintext, preserved clues и attack surface за frequency analysis, repeated patterns и basic scripting.</p>
+          </article>
+          <article class="idea-card">
+            <div class="track-tag">Level 2</div>
+            <h3 class="track-title">Twist on the obvious</h3>
+            <p>Character-level reasoning още е relevant, но direct pattern matching става по-досадно. Ще се налагат по-смислени experiments.</p>
+          </article>
+          <article class="idea-card">
+            <div class="track-tag">Level 3</div>
+            <h3 class="track-title">AI-flavored layered cipher</h3>
+            <p>Тук може да има tokenization layer, variable-length encoding или друго, което чупи naive length heuristics. Точно затова notes и tests са critical.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Practical Advice</p>
+            <h2 class="section-title">Какво правят умните teams</h2>
+          </div>
+          <p class="section-copy">Не гледайте ciphertext-а 4 часа без да пишете код. Правете малки utilities, test-вайте хипотези и си записвайте защо сте ги отхвърлили.</p>
+        </div>
+        <div class="rules-grid">
+          <article class="rule-card">
+            <h3 class="track-title">Build micro-tools</h3>
+            <p>Histogram-и, token counters, permutation testers, crib experiments или visual comparisons са по-полезни от pure guessing.</p>
+          </article>
+          <article class="rule-card">
+            <h3 class="track-title">Track your hypotheses</h3>
+            <p>Записвайте дали current guess-ът ви е monoalphabetic, polyalphabetic, token-level или layered. После отбележете защо сте сменили мнението си.</p>
+          </article>
+          <article class="rule-card">
+            <h3 class="track-title">Use AI carefully</h3>
+            <p>AI може да помогне с history, terminology и solver ideas, но лесно hallucinate-ва в crypto. Пишете къде ви е подвел.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Deliverables</p>
+            <h2 class="section-title">Какво трябва да има в repo-то</h2>
+          </div>
+          <p class="section-copy">Дори да не decrypt-нете всичко напълно, можете да се представите супер силно, ако repo-то показва сериозен cryptanalysis process.</p>
+        </div>
+        <div class="deliverables-grid">
+          <article class="deliverable-card"><h3 class="track-title">`solver/`</h3><p>Скриптове, notebook-и или utilities за attack-а.</p></article>
+          <article class="deliverable-card"><h3 class="track-title">`hypotheses.md`</h3><p>Хронология на guess-овете и защо са се сменяли.</p></article>
+          <article class="deliverable-card"><h3 class="track-title">`why-we-rejected-these-ideas.md`</h3><p>Място за dead ends, false leads и misleading clues.</p></article>
+          <article class="deliverable-card"><h3 class="track-title">`SOURCES.md`</h3><p>Статии, docs, videos и какво сте взели от тях.</p></article>
+          <article class="deliverable-card"><h3 class="track-title">Artifacts</h3><p>Graphs, token stats, tables, screenshots от tests или decode traces.</p></article>
+          <article class="deliverable-card"><h3 class="track-title">Final write-up</h3><p>Какъв е според вас cipher stack-ът и колко confident сте в анализа.</p></article>
+        </div>
+      </section>
+
+      <section class="cta-strip reveal">
+        <div class="section-header" style="margin-bottom: 0;">
+          <div>
+            <p class="eyebrow">Hint Philosophy</p>
+            <h2 class="section-title">Ще има помощ, но няма да има spoiler drop</h2>
+          </div>
+          <p class="section-copy">Ако challenge-ът е прекалено black-box, ще има hints за representation level, natural language assumptions или посока на tooling-а. Няма да има direct solver recipe.</p>
+        </div>
+        <div class="button-row" style="margin-top: 18px;">
+          <a class="btn" href="../workflow.html">Как да водите sessions</a>
+          <a class="btn secondary" href="autograd.html">Виж друг track</a>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../assets/site.js"></script>
+  </body>
+</html>

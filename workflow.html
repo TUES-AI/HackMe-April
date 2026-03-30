@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workflow | HackMe April</title>
+    <meta name="description" content="Как да организирате work sessions, commits, notes и repo structure за HackMe April.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body data-root="./" data-page="workflow">
+    <div id="site-header"></div>
+
+    <main class="page-shell">
+      <section class="page-banner reveal visible">
+        <p class="eyebrow">Workflow</p>
+        <h1>Работете по sessions, не по календар theatre</h1>
+        <p>Не искаме папки по дни само за красота. Искаме ясни milestones, където личи какво сте проучили, какво сте пробвали и какво сте научили от съответния research burst.</p>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Loop</p>
+            <h2 class="section-title">Препоръчителен research session loop</h2>
+          </div>
+          <p class="section-copy">Ако правите 4-8 силни sessions с реален напредък, това струва повече от 20 нискокачествени commits. Quality of thinking е whole point-ът.</p>
+        </div>
+        <div class="workflow-grid">
+          <article class="note-card">
+            <div class="track-tag">01</div>
+            <h3 class="track-title">Frame the question</h3>
+            <p>Формулирайте какво точно искате да разберете: guess за cipher family, idea за architecture, new constraint for the game или полезен tool hypothesis.</p>
+          </article>
+          <article class="note-card">
+            <div class="track-tag">02</div>
+            <h3 class="track-title">Research fast</h3>
+            <p>Съберете 2-5 силни източника, а не 20 случайни tabs. Запишете защо точно тези sources ви изглеждат useful.</p>
+          </article>
+          <article class="note-card">
+            <div class="track-tag">03</div>
+            <h3 class="track-title">Build a small test</h3>
+            <p>Направете tiny experiment, който може да ви отговори на конкретния въпрос. Не скачайте веднага към huge implementation.</p>
+          </article>
+          <article class="note-card">
+            <div class="track-tag">04</div>
+            <h3 class="track-title">Write the failure too</h3>
+            <p>Ако нещо се е счупило, това е материал за точки. Опишете error-а, diagnosis-а и какво ви е подсказал.</p>
+          </article>
+          <article class="note-card">
+            <div class="track-tag">05</div>
+            <h3 class="track-title">Commit the insight</h3>
+            <p>Commit message-ът да казва какво се е променило в understanding-а ви, не само кое file е пипнато.</p>
+          </article>
+          <article class="note-card">
+            <div class="track-tag">06</div>
+            <h3 class="track-title">Choose next move</h3>
+            <p>В края на session-а оставете next question, за да не започвате следващия път от нула.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Repo Shape</p>
+            <h2 class="section-title">Примерна структура на team repo</h2>
+          </div>
+          <p class="section-copy">Не е mandatory да копирате точно това, но структурата трябва да прави research trail-а лесен за четене от журито.</p>
+        </div>
+        <pre class="code-block"><code>README.md
+TEAM.md
+AI_USAGE.md
+SOURCES.md
+sessions/
+  01-kickoff/
+    notes.md
+    links.md
+    problems.md
+    next-step.md
+  02-first-experiment/
+  03-pivot/
+experiments/
+failures/
+code/
+artifacts/
+final/</code></pre>
+      </section>
+
+      <section class="section reveal">
+        <div class="rules-grid">
+          <article class="rule-card">
+            <div class="track-tag">Good commit</div>
+            <h3 class="track-title">Комит, който носи информация</h3>
+            <pre class="code-block"><code>test tokenizer hypothesis on sample text
+log why q-table enemy overfits one player path
+compare banknote baseline vs normalized inputs</code></pre>
+          </article>
+          <article class="rule-card">
+            <div class="track-tag">Weak commit</div>
+            <h3 class="track-title">Комит, който не казва нищо</h3>
+            <pre class="code-block"><code>update files
+work
+fix stuff
+final final real final</code></pre>
+          </article>
+          <article class="rule-card">
+            <div class="track-tag">Session prompt</div>
+            <h3 class="track-title">Въпроси за края на всяка сесия</h3>
+            <ul class="check-list">
+              <li>Какво мислехме преди да почнем?</li>
+              <li>Какво доказахме или опровергахме?</li>
+              <li>Какво ни изненада?</li>
+              <li>Какво ще тестваме следващия път?</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">What Strong Teams Show</p>
+            <h2 class="section-title">Как изглежда силният repo trail</h2>
+          </div>
+          <p class="section-copy">Журито не иска перфектен story arc. Иска honest research log, в който се вижда защо team-ът е взел определени решения.</p>
+        </div>
+        <div class="deliverables-grid">
+          <article class="deliverable-card">
+            <h3 class="track-title">Sources with intent</h3>
+            <p>Не само links, а защо точно даден article / video / doc е бил полезен или useless.</p>
+          </article>
+          <article class="deliverable-card">
+            <h3 class="track-title">Ablations / comparisons</h3>
+            <p>Дори simple before/after comparisons показват, че мислите систематично.</p>
+          </article>
+          <article class="deliverable-card">
+            <h3 class="track-title">Artifacts worth opening</h3>
+            <p>Plots, screenshots, small demos, replay GIFs, decoding notes или benchmark output с контекст.</p>
+          </article>
+          <article class="deliverable-card">
+            <h3 class="track-title">Failures that teach</h3>
+            <p>Силен failure log показва зрелост. Пишете какво ви е подвело и как сте го разбрали.</p>
+          </article>
+          <article class="deliverable-card">
+            <h3 class="track-title">AI skepticism</h3>
+            <p>Много силно впечатление прави, ако сте записали кога AI е дал уверено грешен advice.</p>
+          </article>
+          <article class="deliverable-card">
+            <h3 class="track-title">Readable final story</h3>
+            <p>Накрая някой трябва да може да read-не repo-то и да усети journey-то ви за 10 минути.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-strip reveal">
+        <div class="section-header" style="margin-bottom: 0;">
+          <div>
+            <p class="eyebrow">Short Version</p>
+            <h2 class="section-title">Правете ясни sessions, не spam</h2>
+          </div>
+          <p class="section-copy">Ако journal-ът ви е добър, журито ще види effort-а ви, дори крайният резултат да не е polished. Ако journal-ът ви е празен, лъскавият final demo няма да ви спаси.</p>
+        </div>
+        <div class="button-row" style="margin-top: 18px;">
+          <a class="btn" href="grading.html">Виж как се оценява</a>
+          <a class="btn secondary" href="tracks/crypto.html">Отвори track pages</a>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="assets/site.js"></script>
+  </body>
+</html>

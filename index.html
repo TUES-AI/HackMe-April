@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HackMe April | TUES AI Club</title>
+    <meta name="description" content="HackMe April е optional holiday challenge с 4 tracks, research-first оценяване и силен retro arcade UI.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body data-root="./" data-page="home">
+    <div id="site-header"></div>
+
+    <main class="page-shell">
+      <section class="hero reveal visible">
+        <div>
+          <p class="eyebrow">TUES AI CLUB PRESENTS</p>
+          <h1>HackMe April '26</h1>
+          <p class="lead">Optional holiday challenge с 4 различни tracks, много room за research и почти нулев интерес към fake perfection. Тук печели не този, който просто ship-не резултат, а този, който мисли най-умно, тества най-добре и документира най-чисто.</p>
+          <div class="hero-actions">
+            <a class="btn" href="rules.html">Виж правилата</a>
+            <a class="btn secondary" href="workflow.html">Как се работи</a>
+            <a class="btn secondary" href="#tracks">Избери си track</a>
+          </div>
+          <div class="hero-stats" style="margin-top: 20px;">
+            <div class="panel countdown-card">
+              <div class="mini-label">Start Window</div>
+              <div data-countdown="start" data-label="До старта"></div>
+            </div>
+            <div class="panel countdown-card">
+              <div class="mini-label">Final Demo Day</div>
+              <div data-countdown="deadline" data-label="До финала"></div>
+            </div>
+            <div class="panel">
+              <div class="mini-label">Main Meta</div>
+              <strong class="big-number">Research &gt; Output</strong>
+              <p>Repo trail, hypotheses, failures, debugging и AI usage disclosure са основната валута.</p>
+            </div>
+            <div class="panel">
+              <div class="mini-label">Format</div>
+              <strong class="big-number">4 Tracks</strong>
+              <p>Crypto, AutoGrad ML, adaptive game enemy и AI Toolsmith за хората, които обичат tooling.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="panel">
+            <div class="pixel-field"></div>
+            <p class="mini-label">Challenge DNA</p>
+            <h2 class="panel-title">Не е мини олимпиада. Не е и vibe coding contest.</h2>
+            <p>Това е space за teams, които искат да покажат как проучват, как променят стратегия, как валидират идеи и как използват AI като инструмент, а не като deus ex machina.</p>
+            <div class="badge-row" style="margin-top: 18px;">
+              <span class="track-badge">BG-first copy</span>
+              <span class="track-badge">EN terminology allowed</span>
+              <span class="track-badge">Commit evidence required</span>
+              <span class="track-badge">4-5 min final defense</span>
+            </div>
+          </div>
+          <div class="panel">
+            <p class="mini-label">Live Schedule</p>
+            <ul class="check-list">
+              <li><strong>2 април, четвъртък:</strong> официален старт на challenge-а.</li>
+              <li><strong>4 април, събота:</strong> Google Meet за onboarding, Q&amp;A и live идеи.</li>
+              <li><strong>По средата:</strong> възможен втори support meet, ако има нужда от unblock.</li>
+              <li><strong>18 април:</strong> представяне, кратка защита и награждаване.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee reveal">
+        <div class="marquee-track">
+          <span>cryptanalysis</span><span>reverse engineering</span><span>autograd</span><span>ablation</span><span>RL ideas</span><span>experiment tracking</span><span>tokenization</span><span>compression</span><span>team workflow</span><span>clean commits</span><span>crypto tooling</span><span>dataset hunting</span><span>debugging trail</span><span>artifact design</span><span>research logs</span><span>cryptanalysis</span><span>reverse engineering</span><span>autograd</span><span>ablation</span><span>RL ideas</span>
+        </div>
+      </div>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Why this exists</p>
+            <h2 class="section-title">Домашно, което награждава мисленето</h2>
+          </div>
+          <p class="section-copy">Финален working artifact е nice to have. Но най-важното е ясната следа как сте стигнали до идеите си, какво сте счупили, какво сте научили и как сте pivot-нали, когато нещо не е проработило.</p>
+        </div>
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <div class="metric-label">01</div>
+            <strong class="metric-number">Research trail</strong>
+            <p>Линкове, notes, hypotheses, rejected paths и малки aha моменти трябва да останат видими в repo-то.</p>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">02</div>
+            <strong class="metric-number">Experiment quality</strong>
+            <p>Не безкраен trial-and-error, а смислени тестове с ясна причина защо ги правите и какво научавате.</p>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">03</div>
+            <strong class="metric-number">Honest AI usage</strong>
+            <p>AI е разрешен. Важно е да е документирано какво ви е дал, какво сте отхвърлили и къде е сгрешил.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="tracks">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Four Paths</p>
+            <h2 class="section-title">Избери track, който ти е genuinely интересен</h2>
+          </div>
+          <p class="section-copy">Tracks са нарочно различни, за да може teams да се съберат по curiosity, а не по принуда. Всеки track има собствен вкус, но общото е едно: process-first оценяване.</p>
+        </div>
+        <div class="track-grid">
+          <article class="track-card">
+            <div class="track-tag">01 · Cipher Hunters</div>
+            <h3 class="track-title">Крипто и deciphering</h3>
+            <p>Многослоен cipher с escalating difficulty. Очаква се scripting, pattern analysis, tooling и smart research, не просто random guessing.</p>
+            <div class="pill-row"><span class="pill">frequency analysis</span><span class="pill">tokenizer twists</span></div>
+            <p class="track-meta"><a class="btn secondary" href="tracks/crypto.html">Виж track page</a></p>
+          </article>
+          <article class="track-card">
+            <div class="track-tag">02 · AutoGrad Scientist</div>
+            <h3 class="track-title">Малки ML модели, голямо мислене</h3>
+            <p>Използваш `AutoGrad`, избираш dataset/problem route и печелиш чрез good baselines, ablations и стабилен experiment notebook.</p>
+            <div class="pill-row"><span class="pill">Banknote</span><span class="pill">Seeds</span><span class="pill">Digits</span></div>
+            <p class="track-meta"><a class="btn secondary" href="tracks/autograd.html">Виж track page</a></p>
+          </article>
+          <article class="track-card">
+            <div class="track-tag">03 · Learning Enemy</div>
+            <h3 class="track-title">Game AI под absurd constraints</h3>
+            <p>Правиш игра, в която enemy наистина учи от player behavior. Не fake difficulty, а реална adaptation с ясно видим learning trace.</p>
+            <div class="pill-row"><span class="pill">13 KB zipped</span><span class="pill">or 300 LOC</span></div>
+            <p class="track-meta"><a class="btn secondary" href="tracks/game.html">Виж track page</a></p>
+          </article>
+          <article class="track-card">
+            <div class="track-tag">04 · AI Toolsmith</div>
+            <h3 class="track-title">Инструменти за другите teams</h3>
+            <p>Ако те кефят infra, dashboards, benchmark harnesses, visualizers и DX tooling, това е твоят route. Много real-world AI engineering energy.</p>
+            <div class="pill-row"><span class="pill">experiment tracker</span><span class="pill">visualizer</span></div>
+            <p class="track-meta"><a class="btn secondary" href="tracks/toolsmith.html">Виж track page</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Timeline</p>
+            <h2 class="section-title">Кратко, интензивно, с две точки за помощ</h2>
+          </div>
+          <p class="section-copy">Няма нужда да работите every day. Има нужда да оставяте качествени research sessions, които показват прогрес, смяна на идеи и добра вътрешна организация на team-а.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-card">
+            <div class="timeline-date">2 APR</div>
+            <div>
+              <h3 class="track-title">Launch</h3>
+              <p>Пускат се track pages, ruleset и стартовите материали. Teams си избират primary track и почват първите research commits.</p>
+            </div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-date">4 APR</div>
+            <div>
+              <h3 class="track-title">Google Meet Support</h3>
+              <p>Live Q&amp;A, идеи как да attack-нете проблема, как да си структурирате repo-то и как да избегнете useless brute force.</p>
+            </div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-date">MIDWAY</div>
+            <div>
+              <h3 class="track-title">Optional Second Meet</h3>
+              <p>Ако много teams забият, ще има втори meet за unblock, hints и sanity check на research approach-а.</p>
+            </div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-date">18 APR</div>
+            <div>
+              <h3 class="track-title">Demo + Defense + Rewards</h3>
+              <p>4-5 минути на team: какво опитахте, какво не проработи, какво научихте и защо финалният ви approach е разумен.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Scoring Preview</p>
+            <h2 class="section-title">Точки за процес, не за speedrun</h2>
+          </div>
+          <p class="section-copy">Има winners по track и поне една обща награда за best overall research mindset. Няма смисъл да криете грешките си - те носят точки, ако са анализирани честно.</p>
+        </div>
+        <div class="rubric-grid">
+          <article class="rubric-card">
+            <p class="rubric-label">40%</p>
+            <h3 class="track-title">Research Trail</h3>
+            <div class="rubric-row"><div class="rubric-bar"><span style="width: 40%;"></span></div></div>
+            <p>Sessions, notes, sources, dead ends и ясни промени в посоката.</p>
+          </article>
+          <article class="rubric-card">
+            <p class="rubric-label">20%</p>
+            <h3 class="track-title">Experiment Quality</h3>
+            <div class="rubric-row"><div class="rubric-bar"><span style="width: 20%;"></span></div></div>
+            <p>Смислени тестове, не random knob turning.</p>
+          </article>
+          <article class="rubric-card">
+            <p class="rubric-label">15%</p>
+            <h3 class="track-title">Failures &amp; Debugging</h3>
+            <div class="rubric-row"><div class="rubric-bar"><span style="width: 15%;"></span></div></div>
+            <p>Добре описани проблеми и реални fixes.</p>
+          </article>
+          <article class="rubric-card">
+            <p class="rubric-label">15%</p>
+            <h3 class="track-title">Technical Depth</h3>
+            <div class="rubric-row"><div class="rubric-bar"><span style="width: 15%;"></span></div></div>
+            <p>Колко навътре сте влезли спрямо избрания route.</p>
+          </article>
+          <article class="rubric-card">
+            <p class="rubric-label">10%</p>
+            <h3 class="track-title">Final Demo</h3>
+            <div class="rubric-row"><div class="rubric-bar"><span style="width: 10%;"></span></div></div>
+            <p>Кратко, ясно, показващо най-важните пробиви.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-strip reveal">
+        <div class="section-header" style="margin-bottom: 0;">
+          <div>
+            <p class="eyebrow">Reward Pool</p>
+            <h2 class="section-title">Наградите са забавни, но качествени</h2>
+          </div>
+          <p class="section-copy">Победителите ще избират от голям reward pool със software products и subscriptions като Claude / ChatGPT Pro, AWS usage, GPU rent credits и още tech goodies според интересите на team-а.</p>
+        </div>
+        <div class="button-row" style="margin-top: 18px;">
+          <a class="btn" href="grading.html">Виж rubric + rewards</a>
+          <a class="btn secondary" href="https://github.com/TUES-AI/HackMe-April" target="_blank" rel="noreferrer">Отвори repo hub</a>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="assets/site.js"></script>
+  </body>
+</html>
