@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AI Toolsmith | HackMe April</title>
-    <meta name="description" content="AI Toolsmith track за HackMe April: tooling, dashboards, benchmark harnesses и research accelerators.">
+    <title>Scratch for ML | HackMe April</title>
+    <meta name="description" content="Scratch for ML track за HackMe April: интерактивни ML playground-и, визуализации и обучение чрез експерименти.">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,27 +17,27 @@
     <main class="page-shell">
       <section class="page-banner reveal visible">
         <p class="eyebrow">Track 04</p>
-        <h1>AI Toolsmith</h1>
-        <p>Този track е за хората, които обичат tools, dashboards, benchmark harnesses, visualizers и всичко, което прави research workflow-а на другите teams по-силен, по-бърз и по-ясен.</p>
+        <h1>Scratch for ML</h1>
+        <p>Този track е за хора, които искат да направят ML по-ясно и пипаемо. Идеята е не просто да тренираш модел, а да направиш интерактивен playground в стил на <a class="accent-cyan" href="https://playground.tensorflow.org/" target="_blank" rel="noreferrer">TensorFlow Playground</a>.</p>
       </section>
 
       <section class="section reveal">
         <div class="definition-grid">
           <article class="definition-card">
-            <h3 class="track-title">Core goal</h3>
-            <p>Да направите полезен инструмент, който помага на реален AI / crypto / game research process, а не просто да изглежда fancy.</p>
+            <h3 class="track-title">Основна цел</h3>
+            <p>Да направите интерактивен инструмент, който показва как се държи малък модел, как се учи и как параметрите му променят резултата.</p>
           </article>
           <article class="definition-card">
-            <h3 class="track-title">Good fit</h3>
-            <p>За teams с engineering mindset, които харесват DX, interface design, log analysis, automation и reproducibility повече от самия benchmark.</p>
+            <h3 class="track-title">За кого е</h3>
+            <p>За отбори, които харесват визуализации, интерфейси и образователни инструменти повече от чистото гонене на метрики.</p>
           </article>
           <article class="definition-card">
-            <h3 class="track-title">What wins</h3>
-            <p>Useful software with clear use case, demo върху истински club problem и добра документация как се използва.</p>
+            <h3 class="track-title">Какво печели</h3>
+            <p>Ясна идея, добра интерактивност и усещане, че човек наистина разбира нещо ново, докато си играе с нея.</p>
           </article>
           <article class="definition-card">
-            <h3 class="track-title">What loses</h3>
-            <p>Tool, който има buzzwords и screenshots, но не спестява реално време, не дава insight и не може да бъде възпроизведен лесно.</p>
+            <h3 class="track-title">Какво не стига</h3>
+            <p>Само красив екран без ясно обяснение, без смислени контроли и без видима връзка между входовете и поведението на модела.</p>
           </article>
         </div>
       </section>
@@ -46,25 +46,25 @@
         <div class="section-header">
           <div>
             <p class="eyebrow">What you can build</p>
-            <h2 class="section-title">Примери за силни Toolsmith идеи</h2>
+            <h2 class="section-title">Примери за силни идеи</h2>
           </div>
-          <p class="section-copy">Инструментът трябва да помага на истински workflow. Не е нужно да е huge. Small and sharp tool beats big vague platform.</p>
+          <p class="section-copy">Не е нужно проектът да е голям. По-добре една ясна идея, отколкото огромна платформа.</p>
         </div>
         <div class="ideas-grid">
           <article class="idea-card">
             <div class="track-tag">Idea</div>
-            <h3 class="track-title">Experiment tracker</h3>
-            <p>Лек UI или CLI за записване на AutoGrad runs, configs, метрики и quick comparisons.</p>
+            <h3 class="track-title">Мини neural playground</h3>
+            <p>2D dataset, няколко слоя, activation избор и жива визуализация как decision boundary се променя при обучение.</p>
           </article>
           <article class="idea-card">
             <div class="track-tag">Idea</div>
-            <h3 class="track-title">Crypto helper suite</h3>
-            <p>Histogram visualizer, token inspector, crib tester или друга utility колекция за Cipher track-а.</p>
+            <h3 class="track-title">Block-style builder</h3>
+            <p>Опростен интерфейс тип Scratch, в който потребителят сглобява малък модел и вижда как изборът му влияе.</p>
           </article>
           <article class="idea-card">
             <div class="track-tag">Idea</div>
-            <h3 class="track-title">Game behavior visualizer</h3>
-            <p>Heatmaps, timeline traces или replay overlays, които показват как enemy adaptation-ът се случва във времето.</p>
+            <h3 class="track-title">Учебна визуализация</h3>
+            <p>Инструмент, който показва как loss, learning rate, noise или features влияят на крайния резултат.</p>
           </article>
         </div>
       </section>
@@ -72,29 +72,29 @@
       <section class="section reveal">
         <div class="rules-grid">
           <article class="rule-card">
-            <h3 class="track-title">Required proof</h3>
+            <h3 class="track-title">Задължително</h3>
             <ul class="check-list">
-              <li>Покажете tool-а върху поне един реален problem от club ecosystem-а.</li>
-              <li>Обяснете кой би го ползвал и кога.</li>
-              <li>Дайте quick start instructions.</li>
-              <li>Покажете поне един example artifact / output.</li>
+              <li>Работеща интеракция, не само статичен макет.</li>
+              <li>Ясно описание какво учи потребителят чрез инструмента.</li>
+              <li>Кратки инструкции за ползване.</li>
+              <li>Поне един конкретен сценарий за демонстрация.</li>
             </ul>
           </article>
           <article class="rule-card">
-            <h3 class="track-title">Evaluation focus</h3>
+            <h3 class="track-title">Ще се гледа</h3>
             <ul class="check-list">
-              <li>Usefulness</li>
-              <li>Clarity</li>
-              <li>Robustness</li>
-              <li>Docs and demo quality</li>
+              <li>Яснота</li>
+              <li>Образователна стойност</li>
+              <li>Интерактивност</li>
+              <li>Качество на демото</li>
             </ul>
           </article>
           <article class="rule-card">
-            <h3 class="track-title">Best strategy</h3>
+            <h3 class="track-title">Добър подход</h3>
             <ul class="check-list">
-              <li>Изберете един pain point и го solve-нете отлично.</li>
-              <li>Не правете universal platform без време да я finish-нете.</li>
-              <li>Питайте: този tool наистина ли ускорява research-а?</li>
+              <li>Изберете малка и ясна ML идея.</li>
+              <li>Покажете я визуално и разбираемо.</li>
+              <li>Проверявайте дали човек без дълбок опит може да схване какво става.</li>
             </ul>
           </article>
         </div>
@@ -106,28 +106,28 @@
             <p class="eyebrow">Deliverables</p>
             <h2 class="section-title">Какво трябва да остане след вас</h2>
           </div>
-          <p class="section-copy">Най-силните submissions изглеждат като tool, който спокойно може да се ползва и след challenge-а.</p>
+          <p class="section-copy">Най-силните проекти са малки, ясни и удобни за показване пред други ученици.</p>
         </div>
         <div class="deliverables-grid">
-          <article class="deliverable-card"><h3 class="track-title">Usable tool</h3><p>CLI, web app, local dashboard или library с ясна точка на употреба.</p></article>
-          <article class="deliverable-card"><h3 class="track-title">Quick start docs</h3><p>Как се пуска, какво приема и какво връща.</p></article>
-          <article class="deliverable-card"><h3 class="track-title">Real demo</h3><p>Покажете tool-а върху реален crypto, ML или game workflow.</p></article>
-          <article class="deliverable-card"><h3 class="track-title">Design notes</h3><p>Какъв pain point сте избрали и защо този scope е достатъчен.</p></article>
-          <article class="deliverable-card"><h3 class="track-title">Failure log</h3><p>Кои feature идеи сте cut-нали и защо това е подобрило tool-а.</p></article>
-          <article class="deliverable-card"><h3 class="track-title">Future path</h3><p>Как бихте направили v2, ако challenge-ът продължи още седмица.</p></article>
+          <article class="deliverable-card"><h3 class="track-title">Interactive demo</h3><p>Web страница или локално приложение с реална интеракция.</p></article>
+          <article class="deliverable-card"><h3 class="track-title"><code>README.md</code></h3><p>Какво показва проектът и как се пуска.</p></article>
+          <article class="deliverable-card"><h3 class="track-title"><code>design-notes.md</code></h3><p>Какво опростихте и защо.</p></article>
+          <article class="deliverable-card"><h3 class="track-title">Visual explanation</h3><p>Скрийншоти, GIF или кратко видео на основните контроли.</p></article>
+          <article class="deliverable-card"><h3 class="track-title"><code>mistakes.md</code></h3><p>Кое не проработи и как го променихте.</p></article>
+          <article class="deliverable-card"><h3 class="track-title">Teaching angle</h3><p>Какво би разбрал един ученик след 2-3 минути игра с проекта.</p></article>
         </div>
       </section>
 
       <section class="cta-strip reveal">
         <div class="section-header" style="margin-bottom: 0;">
           <div>
-            <p class="eyebrow">Tooling Energy</p>
-            <h2 class="section-title">Small sharp tools are beautiful</h2>
+            <p class="eyebrow">Main Idea</p>
+            <h2 class="section-title">Направете ML по-разбираемо, не по-шумно</h2>
           </div>
-          <p class="section-copy">Един добре направен dashboard, tracker или visualizer може да е най-"real world" submission-ът в целия challenge. Не подценявайте този route.</p>
+          <p class="section-copy">Ако някой може да отвори проекта ви и бързо да схване как работи един малък модел, значи сте уцелили посоката.</p>
         </div>
         <div class="button-row" style="margin-top: 18px;">
-          <a class="btn" href="../workflow.html">Виж repo workflow</a>
+          <a class="btn" href="../workflow.html">Виж как се работи</a>
           <a class="btn secondary" href="crypto.html">Назад към Crypto track</a>
         </div>
       </section>

@@ -1,10 +1,10 @@
 const NAV_GROUPS = [
   {
-    title: "Guide",
+    title: "Основни",
     links: [
-      { id: "home", label: "Overview", href: "index.html" },
+      { id: "home", label: "Начало", href: "index.html" },
       { id: "rules", label: "Правила", href: "rules.html" },
-      { id: "workflow", label: "Workflow", href: "workflow.html" },
+      { id: "workflow", label: "Как се работи", href: "workflow.html" },
       { id: "grading", label: "Награди", href: "grading.html" }
     ]
   },
@@ -14,7 +14,7 @@ const NAV_GROUPS = [
       { id: "crypto", label: "Cipher Hunters", href: "tracks/crypto.html" },
       { id: "autograd", label: "AutoGrad Scientist", href: "tracks/autograd.html" },
       { id: "game", label: "Learning Enemy", href: "tracks/game.html" },
-      { id: "toolsmith", label: "AI Toolsmith", href: "tracks/toolsmith.html" }
+      { id: "toolsmith", label: "Scratch for ML", href: "tracks/toolsmith.html" }
     ]
   }
 ];
@@ -33,15 +33,6 @@ function getCurrentPage() {
   return document.body.dataset.page || "home";
 }
 
-function slugify(text) {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
-}
-
 function applyTheme(theme) {
   document.body.dataset.theme = theme;
   try {
@@ -52,7 +43,7 @@ function applyTheme(theme) {
 
   const button = document.querySelector(".theme-toggle");
   if (button) {
-    const next = theme === "dark" ? "Light mode" : "Dark mode";
+    const next = theme === "dark" ? "Светла тема" : "Тъмна тема";
     button.textContent = next;
     button.setAttribute("aria-label", next);
   }
@@ -84,7 +75,7 @@ function buildHeader() {
   target.innerHTML = `
     <header class="site-header">
       <div class="header-row">
-        <button class="menu-button" type="button" aria-expanded="false" aria-label="Open navigation">Pages</button>
+        <button class="menu-button" type="button" aria-expanded="false" aria-label="Open navigation">Меню</button>
         <a class="brand" href="${root}index.html" aria-label="HackMe April home">
           <span class="brand-mark">HM</span>
           <span>
@@ -94,11 +85,11 @@ function buildHeader() {
         </a>
         <div class="header-actions">
           <a class="header-link" href="https://github.com/TUES-AI/HackMe-April" target="_blank" rel="noreferrer">GitHub</a>
-          <button class="theme-toggle" type="button" aria-label="Dark mode">Dark mode</button>
+          <button class="theme-toggle" type="button" aria-label="Тъмна тема">Тъмна тема</button>
         </div>
       </div>
       <div class="mobile-nav-shell">
-        <p class="mobile-nav-label">Jump to</p>
+        <p class="mobile-nav-label">Страници</p>
         <nav class="mobile-tabs" aria-label="Quick navigation">
           ${quickLinks}
         </nav>
@@ -120,14 +111,9 @@ function buildLayout() {
   sidebar.id = "site-sidebar";
   sidebar.className = "site-sidebar";
 
-  const rail = document.createElement("aside");
-  rail.id = "page-rail";
-  rail.className = "page-rail";
-
   main.parentNode.insertBefore(shell, main);
   shell.appendChild(sidebar);
   shell.appendChild(main);
-  shell.appendChild(rail);
 
   const backdrop = document.createElement("button");
   backdrop.type = "button";
@@ -159,61 +145,13 @@ function buildSidebar() {
 
   target.innerHTML = `
     <div class="sidebar-inner">
-      <p class="sidebar-kicker">Challenge docs</p>
-      <p class="sidebar-copy">Minimal guide за rules, workflow, rewards и четирите challenge paths.</p>
+      <p class="sidebar-kicker">HackMe April</p>
+      <p class="sidebar-copy">Кратък гид за правилата, работата по проекта и четирите посоки.</p>
       ${groups}
       <div class="sidebar-note">
-        <p class="sidebar-note-title">Final demo day</p>
+        <p class="sidebar-note-title">Финал</p>
         <p>18 April 2026</p>
-        <a href="https://github.com/TUES-AI/HackMe-April" target="_blank" rel="noreferrer">Open repo hub</a>
-      </div>
-    </div>
-  `;
-}
-
-function ensureHeadingIds() {
-  const headings = document.querySelectorAll(".hero h1, .page-banner h1, .section-title");
-  const used = new Set();
-
-  headings.forEach((heading, index) => {
-    if (heading.id) {
-      used.add(heading.id);
-      return;
-    }
-
-    let base = slugify(heading.textContent || `section-${index + 1}`) || `section-${index + 1}`;
-    let id = base;
-    let counter = 2;
-    while (used.has(id)) {
-      id = `${base}-${counter}`;
-      counter += 1;
-    }
-    heading.id = id;
-    used.add(id);
-  });
-}
-
-function buildRail() {
-  ensureHeadingIds();
-
-  const target = document.getElementById("page-rail");
-  if (!target) return;
-
-  const sections = Array.from(document.querySelectorAll(".section-title"));
-  const links = sections.map((heading) => {
-    return `<a class="rail-link" href="#${heading.id}">${heading.textContent}</a>`;
-  }).join("");
-
-  target.innerHTML = `
-    <div class="rail-inner">
-      <div class="rail-card">
-        <p class="rail-label">Important</p>
-        <div class="rail-value" data-countdown="deadline" data-label="До финалните представяния"></div>
-        <p class="rail-copy">Google Meet help: 4 April</p>
-      </div>
-      <div class="rail-card rail-toc ${links ? "" : "is-empty"}">
-        <p class="rail-label">On this page</p>
-        <nav class="rail-nav" aria-label="Page sections">${links || "<span class=\"rail-copy\">Overview page</span>"}</nav>
+        <a href="https://github.com/TUES-AI/HackMe-April" target="_blank" rel="noreferrer">Repo hub</a>
       </div>
     </div>
   `;
@@ -228,7 +166,7 @@ function buildFooter() {
       <div class="footer-grid">
         <div>
           <p class="footer-title">HackMe April</p>
-          <p>Optional holiday challenge за research, debugging и clear engineering process.</p>
+          <p>Optional holiday challenge за проучване, експерименти и добра проектна следа.</p>
         </div>
         <div>
           <p class="footer-title">Hub</p>
@@ -237,9 +175,9 @@ function buildFooter() {
         </div>
         <div>
           <p class="footer-title">Timeline</p>
-          <p>Start: 2 April 2026</p>
-          <p>Support meet: 4 April 2026</p>
-          <p>Demos: 18 April 2026</p>
+          <p>Старт: 2 April 2026</p>
+          <p>Среща: 4 April 2026</p>
+          <p>Финал: 18 April 2026</p>
         </div>
       </div>
     </footer>
@@ -286,34 +224,6 @@ function setCurrentYear() {
   });
 }
 
-function setActiveRailLink(id) {
-  document.querySelectorAll(".rail-link").forEach((link) => {
-    const active = link.getAttribute("href") === `#${id}`;
-    link.classList.toggle("is-active", active);
-  });
-}
-
-function activateRailObserver() {
-  const headings = Array.from(document.querySelectorAll(".section-title"));
-  if (!headings.length || !("IntersectionObserver" in window)) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-
-    if (visible?.target?.id) {
-      setActiveRailLink(visible.target.id);
-    }
-  }, {
-    rootMargin: "-20% 0px -70% 0px",
-    threshold: [0, 1]
-  });
-
-  headings.forEach((heading) => observer.observe(heading));
-  setActiveRailLink(headings[0].id);
-}
-
 function closeSidebar() {
   document.body.classList.remove("sidebar-open");
   const button = document.querySelector(".menu-button");
@@ -352,10 +262,8 @@ document.addEventListener("DOMContentLoaded", () => {
   applyTheme(document.body.dataset.theme || "light");
   buildLayout();
   buildSidebar();
-  buildRail();
   buildFooter();
   bindUI();
   hydrateCountdowns();
-  activateRailObserver();
   setCurrentYear();
 });
