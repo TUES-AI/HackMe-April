@@ -18,13 +18,13 @@
       <section class="page-banner reveal visible">
         <p class="eyebrow">Track 03</p>
         <h1>Learning Enemy</h1>
-        <p>Правите малка игра, в която enemy поведението реално се променя според играча. Не търсим фалшиво вдигане на трудността, а истинска адаптация, която може да бъде показана и обяснена.</p>
+        <p>Правите малка игра, в която enemy поведението реално се променя според играча.</p>
       </section>
 
       <section class="section reveal">
         <div class="definition-grid">
           <article class="definition-card">
-            <h3 class="track-title">Какво се брои за learning</h3>
+            <h3 class="track-title">Какво се брои</h3>
             <p>Enemy-то започва да предвижда dodge patterns, позиционира се според любимите ви маршрути, променя timing-а или използва прост model / table / heuristic, основан на данни от играча.</p>
           </article>
           <article class="definition-card">
@@ -32,103 +32,29 @@
             <p>Просто повече HP, по-бързи bullet-и, fixed difficulty levels или чисто random spikes не са learning behavior.</p>
           </article>
           <article class="definition-card">
-            <h3 class="track-title">Най-добър формат</h3>
-            <p>Малка, ясна игра, в която адаптацията се усеща бързо и може да се демонстрира за секунди.</p>
-          </article>
-          <article class="definition-card">
-            <h3 class="track-title">Какво се гледа</h3>
-            <p>Ще се гледа колко ясно личи learning-ът, колко е добра идеята и колко добре я обяснявате.</p>
+            <h3 class="track-title">Какво да предадете</h3>
+            <p>Playable build, <code>LEARNING_TRACE.md</code> и кратък replay или screenshots.</p>
           </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Official Constraint Modes</p>
-            <h2 class="section-title">Избирате един режим и го заявявате в README</h2>
-          </div>
-          <p class="section-copy">И двата режима са валидни. Разликата е дали предпочитате ограничение по размер или по код.</p>
-        </div>
         <div class="ideas-grid">
           <article class="idea-card">
             <div class="track-tag">Mode A</div>
             <h3 class="track-title">13 KB zipped browser game</h3>
-            <p>Подход за отбори, които искат малка web игра с много строг размер.</p>
+            <p>Малка web игра с много строг размер.</p>
           </article>
           <article class="idea-card">
             <div class="track-tag">Mode B</div>
             <h3 class="track-title">300 LOC no-engine</h3>
-            <p>По-малко натиск от компресията и повече фокус върху чиста механика и адаптивна логика.</p>
+            <p>По-малко натиск от компресията и повече фокус върху логиката.</p>
           </article>
           <article class="idea-card">
             <div class="track-tag">Always Required</div>
             <h3 class="track-title">Visible learning trace</h3>
             <p>Покажете как enemy-то се променя: log, replay, side panel, GIF или кратък demo режим.</p>
           </article>
-        </div>
-      </section>
-
-      <section class="section reveal">
-        <div class="rules-grid">
-          <article class="rule-card">
-            <h3 class="track-title">Possible mechanisms</h3>
-            <ul class="check-list">
-              <li>Heatmaps на player movement.</li>
-              <li>Simple n-gram prediction.</li>
-              <li>Bandit / Q-table style policy.</li>
-              <li>Perceptron или tiny NN, ако сте ambitious.</li>
-            </ul>
-          </article>
-          <article class="rule-card">
-            <h3 class="track-title">Best research angle</h3>
-            <ul class="check-list">
-              <li>Тествайте различни adaptation rules.</li>
-              <li>Запишете кое е readable за player-а и кое е твърде hidden.</li>
-              <li>Опишете trade-off-а между fun и learning accuracy.</li>
-              <li>Покажете как сте смалили scope-а, за да ship-нете нещо ясно.</li>
-            </ul>
-          </article>
-          <article class="rule-card">
-            <h3 class="track-title">Pitfalls</h3>
-            <ul class="check-list">
-              <li>Да скриете learning-а толкова много, че никой да не може да го види.</li>
-              <li>Да направите играта прекалено голяма и да няма време за AI behavior.</li>
-              <li>Да разчитате на buzzwords вместо на observable adaptation.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section reveal">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Deliverables</p>
-            <h2 class="section-title">Какво искаме да видим от game отборите</h2>
-          </div>
-          <p class="section-copy">Печелите много, ако можете да покажете learning-а в рамките на 20-30 секунди и да подкрепите това с ясни notes в repo-то.</p>
-        </div>
-        <div class="deliverables-grid">
-          <article class="deliverable-card"><h3 class="track-title">Playable build</h3><p>Browser link или instructions за пускане, колкото може по-лесни.</p></article>
-          <article class="deliverable-card"><h3 class="track-title"><code>LEARNING_TRACE.md</code></h3><p>Преди/след behavior, observed signals и какво значи adaptation във вашата игра.</p></article>
-          <article class="deliverable-card"><h3 class="track-title">Short replay</h3><p>GIF, video или screenshots, които правят разликата във времето видима.</p></article>
-          <article class="deliverable-card"><h3 class="track-title">Constraint proof</h3><p>Покажете size / LOC discipline според избрания mode.</p></article>
-          <article class="deliverable-card"><h3 class="track-title">Design notes</h3><p>Как сте решили какво да cut-нете и кое да остане вътре.</p></article>
-          <article class="deliverable-card"><h3 class="track-title">Failure notes</h3><p>Кои learning идеи не са били fun или не са били readable.</p></article>
-        </div>
-      </section>
-
-      <section class="cta-strip reveal">
-        <div class="section-header" style="margin-bottom: 0;">
-          <div>
-            <p class="eyebrow">Rule of Thumb</p>
-            <h2 class="section-title">По-добре малка игра с ясно учещ враг, отколкото голяма игра с vague AI</h2>
-          </div>
-          <p class="section-copy">Ако player-ът и журито не могат да усетят adaptation-а, значи трябва да опростите. Видимото learning поведение е звездата на този track.</p>
-        </div>
-        <div class="button-row" style="margin-top: 18px;">
-          <a class="btn" href="../workflow.html">Виж workflow съветите</a>
-          <a class="btn secondary" href="toolsmith.html">Виж Scratch for ML</a>
         </div>
       </section>
     </main>

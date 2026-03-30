@@ -366,7 +366,7 @@ li {
 
 .page-shell {
   min-width: 0;
-  padding: 20px 0 64px;
+  padding: 16px 0 48px;
 }
 
 .page-shell > *,
@@ -376,7 +376,7 @@ li {
 .cta-strip,
 .marquee {
   width: auto;
-  margin: 0 0 24px;
+  margin: 0 0 18px;
 }
 
 .marquee,
@@ -387,12 +387,12 @@ li {
 .hero,
 .page-banner,
 .cta-strip {
-  padding: 24px;
+  padding: 20px;
 }
 
 .hero {
   display: grid;
-  gap: 20px;
+  gap: 16px;
 }
 
 .hero h1,
@@ -451,7 +451,7 @@ li {
 .definition-grid,
 .footer-grid {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .hero-stats,
@@ -470,8 +470,8 @@ li {
 
 .section-header {
   display: grid;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .section-header p {

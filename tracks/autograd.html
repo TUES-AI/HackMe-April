@@ -18,117 +18,43 @@
       <section class="page-banner reveal visible">
         <p class="eyebrow">Track 02</p>
         <h1>AutoGrad Scientist</h1>
-        <p>Тук работите с <a class="accent-cyan" href="https://github.com/TUES-AI/AutoGrad" target="_blank" rel="noreferrer">TUES-AI/AutoGrad</a> и гоним не Kaggle-brainrot, а clean experimentation. Малки datasets, ясни baselines, добри аблации и честен анализ на failures.</p>
+        <p>Работите с <a class="accent-cyan" href="https://github.com/TUES-AI/AutoGrad" target="_blank" rel="noreferrer">TUES-AI/AutoGrad</a> и правите чисти, добре описани експерименти.</p>
       </section>
 
       <section class="section reveal">
         <div class="definition-grid">
           <article class="definition-card">
-            <h3 class="track-title">Goal</h3>
-            <p>Да изследвате как малък neural net pipeline се държи върху подбрани datasets и какви engineering решения реално помагат.</p>
+            <h3 class="track-title">Цел</h3>
+            <p>Да видите как малък neural net се държи върху подбрани datasets.</p>
           </article>
           <article class="definition-card">
-            <h3 class="track-title">Winning mindset</h3>
-            <p>Не highest accuracy на всяка цена, а best methodology: baseline, controlled changes, notes и reproducibility.</p>
+            <h3 class="track-title">Какво носи точки</h3>
+            <p>Baseline, controlled changes, ясни notes и reproducibility.</p>
           </article>
           <article class="definition-card">
-            <h3 class="track-title">Good fit</h3>
-            <p>За хора, които искат да пипнат model design, data preprocessing, metrics и experiment logging без massive infrastructure.</p>
-          </article>
-          <article class="definition-card">
-            <h3 class="track-title">Core repo</h3>
-            <p>AutoGrad е малък playground framework, така че problem selection-ът е съобразен с реалния му scale, а не с giant image benchmarks.</p>
+            <h3 class="track-title">Какво да предадете</h3>
+            <p><code>dataset_notes.md</code>, <code>baseline.md</code>, <code>experiments/</code>, <code>ablations.md</code>.</p>
           </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Recommended Route</p>
-            <h2 class="section-title">Датасет ladder с escalating complexity</h2>
-          </div>
-          <p class="section-copy">Може да спрете на по-ниско ниво и пак да направите силен project, ако experiments-ите ви са умни. По-високото ниво не гарантира победа.</p>
-        </div>
         <div class="ideas-grid">
           <article class="idea-card">
             <div class="track-tag">Level 1</div>
             <h3 class="track-title">Banknote Authentication</h3>
-            <p>Малък binary classification dataset с 1372 instances и 4 numeric features. Супер за baseline, normalization и learning rate sanity checks.</p>
+            <p>Добър за baseline, normalization и sanity checks.</p>
           </article>
           <article class="idea-card">
             <div class="track-tag">Level 2</div>
             <h3 class="track-title">Seeds</h3>
-            <p>210 examples, 7 features, 3 classes. Добра стъпка към multiclass задачи и по-смислени сравнения.</p>
+            <p>Добра стъпка към multiclass задачи.</p>
           </article>
           <article class="idea-card">
             <div class="track-tag">Level 3</div>
             <h3 class="track-title">Digits</h3>
-            <p>1797 samples, 64-feature flattened images и 10 classes. Достатъчно interesting, но все още realistic за small-net experimentation.</p>
+            <p>По-труден вариант, но още реалистичен за small-net experiments.</p>
           </article>
-        </div>
-      </section>
-
-      <section class="section reveal">
-        <div class="rules-grid">
-          <article class="rule-card">
-            <h3 class="track-title">Minimum expected</h3>
-            <ul class="check-list">
-              <li>Един honest baseline.</li>
-              <li>Поне 5 записани experiments.</li>
-              <li>Поне една ablation или comparison таблица.</li>
-              <li>Едно ясно описано failure case.</li>
-            </ul>
-          </article>
-          <article class="rule-card">
-            <h3 class="track-title">Strong extras</h3>
-            <ul class="check-list">
-              <li>Repro script.</li>
-              <li>Visualization на loss / accuracy trends.</li>
-              <li>AI notes за rejected suggestions.</li>
-              <li>Аргументи защо даден hyperparameter е променен.</li>
-            </ul>
-          </article>
-          <article class="rule-card">
-            <h3 class="track-title">Слаб подход</h3>
-            <ul class="check-list">
-              <li>Да гониш само най-високото число без да знаеш защо е станало.</li>
-              <li>Да сменяш 10 неща наведнъж и после да не можеш да обясниш кое е помогнало.</li>
-              <li>Да криеш failed runs, вместо да ги анализираш.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section reveal">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Deliverables</p>
-            <h2 class="section-title">Как да изглежда репото на силен ML team</h2>
-          </div>
-          <p class="section-copy">Дори numbers-ите ви да не са best-in-class, може да изглеждате топ, ако experiment notebook-ът ви е ясен и възпроизводим.</p>
-        </div>
-        <div class="deliverables-grid">
-          <article class="deliverable-card"><h3 class="track-title"><code>dataset_notes.md</code></h3><p>Какво е dataset-ът, защо сте го избрали и какви preprocessing идеи сте тествали.</p></article>
-          <article class="deliverable-card"><h3 class="track-title"><code>baseline.md</code></h3><p>Първи работещ model и какъв е смисълът на baseline-а ви.</p></article>
-          <article class="deliverable-card"><h3 class="track-title"><code>experiments/</code></h3><p>Кратки logs за всеки run: промяна, очакване, резултат, извод.</p></article>
-          <article class="deliverable-card"><h3 class="track-title"><code>ablations.md</code></h3><p>Сравнение на поне няколко controlled variations.</p></article>
-          <article class="deliverable-card"><h3 class="track-title"><code>mistakes.md</code></h3><p>Неочаквани провали, numerical issues, overfitting и други проблеми.</p></article>
-          <article class="deliverable-card"><h3 class="track-title"><code>run.py</code> / script</h3><p>Нещо, което прави workflow-а ви лесен за повторение.</p></article>
-        </div>
-      </section>
-
-      <section class="cta-strip reveal">
-        <div class="section-header" style="margin-bottom: 0;">
-          <div>
-            <p class="eyebrow">Bottom Line</p>
-            <h2 class="section-title">Тук качественият notebook бие lucky run-а</h2>
-          </div>
-          <p class="section-copy">Ако знаете защо model-ът ви се е подобрил, това е силно. Ако само е hit-нало по-добро accuracy число без story, това не е enough.</p>
-        </div>
-        <div class="button-row" style="margin-top: 18px;">
-          <a class="btn" href="https://github.com/TUES-AI/AutoGrad" target="_blank" rel="noreferrer">Отвори AutoGrad</a>
-          <a class="btn secondary" href="game.html">Виж Game AI track</a>
         </div>
       </section>
     </main>
