@@ -95,6 +95,20 @@ img {
   scrollbar-width: none;
 }
 
+.mobile-nav-shell {
+  border-top: 1px solid var(--border);
+}
+
+.mobile-nav-label {
+  margin: 0;
+  padding: 10px 12px 8px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .mobile-tabs::-webkit-scrollbar {
   display: none;
 }
@@ -689,6 +703,10 @@ li,
   }
 
   .mobile-tabs {
+    display: none;
+  }
+
+  .mobile-nav-shell {
     display: none;
   }
 

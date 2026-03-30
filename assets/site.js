@@ -84,7 +84,7 @@ function buildHeader() {
   target.innerHTML = `
     <header class="site-header">
       <div class="header-row">
-        <button class="menu-button" type="button" aria-expanded="false" aria-label="Open navigation">Menu</button>
+        <button class="menu-button" type="button" aria-expanded="false" aria-label="Open navigation">Pages</button>
         <a class="brand" href="${root}index.html" aria-label="HackMe April home">
           <span class="brand-mark">HM</span>
           <span>
@@ -97,9 +97,12 @@ function buildHeader() {
           <button class="theme-toggle" type="button" aria-label="Dark mode">Dark mode</button>
         </div>
       </div>
-      <nav class="mobile-tabs" aria-label="Quick navigation">
-        ${quickLinks}
-      </nav>
+      <div class="mobile-nav-shell">
+        <p class="mobile-nav-label">Jump to</p>
+        <nav class="mobile-tabs" aria-label="Quick navigation">
+          ${quickLinks}
+        </nav>
+      </div>
     </header>
   `;
 }
