@@ -67,7 +67,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 60;
-  height: var(--header-h);
+  min-height: var(--header-h);
   border-bottom: 1px solid var(--border);
   background: var(--header-bg);
   backdrop-filter: blur(12px);
@@ -85,6 +85,37 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.mobile-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 0 12px 12px;
+  scrollbar-width: none;
+}
+
+.mobile-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-tab {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.mobile-tab.is-active {
+  color: var(--heading);
+  background: var(--surface-alt);
+  font-weight: 700;
 }
 
 .brand {
@@ -172,7 +203,7 @@ img {
   left: 0;
   width: min(84vw, 300px);
   height: 100vh;
-  padding: calc(var(--header-h) + 12px) 14px 24px;
+  padding: calc(var(--header-h) + 56px) 14px 24px;
   border-right: 1px solid var(--border);
   background: var(--bg);
   transform: translateX(-100%);
@@ -654,6 +685,10 @@ li,
 
 @media (min-width: 980px) {
   .menu-button {
+    display: none;
+  }
+
+  .mobile-tabs {
     display: none;
   }
 

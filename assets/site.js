@@ -72,8 +72,14 @@ function initTheme() {
 
 function buildHeader() {
   const root = getRoot();
+  const current = getCurrentPage();
   const target = document.getElementById("site-header");
   if (!target) return;
+
+  const quickLinks = NAV_GROUPS.flatMap((group) => group.links).map((link) => {
+    const active = link.id === current ? "is-active" : "";
+    return `<a class="mobile-tab ${active}" href="${root}${link.href}">${link.label}</a>`;
+  }).join("");
 
   target.innerHTML = `
     <header class="site-header">
@@ -91,6 +97,9 @@ function buildHeader() {
           <button class="theme-toggle" type="button" aria-label="Dark mode">Dark mode</button>
         </div>
       </div>
+      <nav class="mobile-tabs" aria-label="Quick navigation">
+        ${quickLinks}
+      </nav>
     </header>
   `;
 }
