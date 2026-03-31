@@ -402,6 +402,16 @@ li {
   padding: 28px;
 }
 
+.hero-brand-strip {
+  margin-bottom: 12px;
+}
+
+.hero-club-logo {
+  width: min(260px, 62%);
+  height: auto;
+  object-fit: contain;
+}
+
 .hero {
   display: grid;
   gap: 24px;
@@ -529,6 +539,32 @@ li {
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow);
+}
+
+.reward-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.reward-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface-soft);
+}
+
+.reward-logo-card img {
+  max-width: 100%;
+  max-height: 42px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .cipher-block {
@@ -850,6 +886,10 @@ body[data-theme="dark"] .site-footer a {
   .feature-split,
   .artifact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reward-logo-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .timeline-card {
