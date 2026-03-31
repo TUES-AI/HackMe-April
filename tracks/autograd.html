@@ -102,14 +102,14 @@
       .mnist-hero-card {
         position: relative;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid color-mix(in srgb, var(--border) 72%, var(--accent) 28%);
         background:
-          radial-gradient(circle at top left, rgba(25, 231, 110, 0.16), transparent 30%),
-          radial-gradient(circle at bottom right, rgba(0, 184, 107, 0.14), transparent 34%),
-          linear-gradient(180deg, rgba(8, 13, 10, 0.96), rgba(8, 10, 9, 0.98));
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 18%, transparent), transparent 34%),
+          radial-gradient(circle at bottom right, color-mix(in srgb, var(--accent-deep) 14%, transparent), transparent 38%),
+          linear-gradient(180deg, color-mix(in srgb, var(--surface) 82%, var(--accent) 18%), var(--surface));
         box-shadow:
-          inset 0 1px 0 rgba(255,255,255,0.05),
-          0 24px 60px rgba(0,0,0,0.34);
+          inset 0 1px 0 rgba(255,255,255,0.38),
+          0 18px 44px rgba(17, 24, 17, 0.08);
       }
 
       .mnist-hero {
@@ -122,8 +122,8 @@
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-          linear-gradient(180deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+          linear-gradient(90deg, rgba(15, 24, 15, 0.04) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(15, 24, 15, 0.04) 1px, transparent 1px);
         background-size: 22px 22px;
         mask-image: linear-gradient(180deg, rgba(0,0,0,0.7), transparent 90%);
         pointer-events: none;
@@ -146,9 +146,9 @@
         gap: 0.45rem;
         padding: 0.45rem 0.75rem;
         border-radius: 999px;
-        border: 1px solid rgba(25, 231, 110, 0.22);
-        background: rgba(25, 231, 110, 0.09);
-        color: #cffff0;
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, var(--border));
+        background: color-mix(in srgb, var(--accent) 14%, var(--surface));
+        color: var(--heading);
         font-size: 0.74rem;
         font-weight: 700;
         letter-spacing: 0.08em;
@@ -165,7 +165,7 @@
       }
 
       .mnist-meta {
-        color: rgba(230, 255, 241, 0.7);
+        color: var(--muted);
         font-size: 0.78rem;
         letter-spacing: 0.04em;
         text-transform: uppercase;
@@ -186,10 +186,10 @@
         display: grid;
         place-items: center;
         border-radius: 1.35rem;
-        border: 1px solid rgba(255,255,255,0.06);
+        border: 1px solid color-mix(in srgb, var(--border) 78%, var(--accent) 22%);
         background:
-          linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
-          rgba(10, 15, 12, 0.78);
+          linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.15)),
+          color-mix(in srgb, var(--surface-soft) 82%, var(--accent) 18%);
         overflow: hidden;
         isolation: isolate;
       }
@@ -199,7 +199,7 @@
         width: 72%;
         aspect-ratio: 1;
         border-radius: 999px;
-        background: radial-gradient(circle, rgba(25, 231, 110, 0.22), rgba(25, 231, 110, 0.04) 45%, transparent 72%);
+        background: radial-gradient(circle, rgba(25, 231, 110, 0.18), rgba(25, 231, 110, 0.03) 45%, transparent 72%);
         filter: blur(10px);
         pointer-events: none;
       }
@@ -208,13 +208,13 @@
         position: relative;
         padding: 1rem;
         border-radius: 1.15rem;
-        border: 1px solid rgba(25, 231, 110, 0.14);
+        border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
         background:
-          linear-gradient(180deg, rgba(13, 20, 16, 0.96), rgba(7, 11, 9, 0.96));
+          linear-gradient(180deg, color-mix(in srgb, var(--surface) 86%, var(--accent) 14%), var(--surface));
         box-shadow:
-          inset 0 1px 0 rgba(255,255,255,0.05),
-          0 18px 40px rgba(0,0,0,0.32),
-          0 0 0 1px rgba(25, 231, 110, 0.05);
+          inset 0 1px 0 rgba(255,255,255,0.55),
+          0 12px 28px rgba(17, 24, 17, 0.08),
+          0 0 0 1px rgba(25, 231, 110, 0.06);
       }
 
       .mnist-big-grid,
@@ -238,8 +238,8 @@
 
       .mnist-pixel {
         border-radius: 0.38rem;
-        border: 1px solid rgba(255,255,255,0.03);
-        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(15, 24, 15, 0.06);
+        background: rgba(255,255,255,0.45);
         transition:
           transform 180ms ease,
           box-shadow 180ms ease,
@@ -253,9 +253,9 @@
       }
 
       .mnist-pixel.level-0 {
-        background: rgba(255,255,255,0.028);
-        border-color: rgba(255,255,255,0.025);
-        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.01);
+        background: rgba(255,255,255,0.38);
+        border-color: rgba(15,24,15,0.04);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35);
       }
 
       .mnist-pixel.level-1 {
@@ -295,17 +295,17 @@
         align-items: center;
         justify-content: space-between;
         gap: 0.75rem;
-        color: rgba(231, 255, 240, 0.82);
+        color: var(--text);
         font-size: 0.82rem;
       }
 
       .mnist-stage-caption strong {
         font-size: 0.92rem;
-        color: #effff4;
+        color: var(--heading);
       }
 
       .mnist-stage-caption span:last-child {
-        color: rgba(231, 255, 240, 0.56);
+        color: var(--muted);
         text-transform: uppercase;
         letter-spacing: 0.05em;
         font-size: 0.72rem;
@@ -323,11 +323,11 @@
         gap: 0.55rem;
         justify-items: center;
         padding: 0.85rem 0.65rem;
-        border: 1px solid rgba(255,255,255,0.06);
+        border: 1px solid color-mix(in srgb, var(--border) 82%, var(--accent) 18%);
         border-radius: 1rem;
         background:
-          linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
-          rgba(10, 14, 12, 0.82);
+          linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.18)),
+          color-mix(in srgb, var(--surface-soft) 86%, var(--accent) 14%);
         cursor: pointer;
         transition:
           transform 180ms ease,
@@ -339,11 +339,104 @@
       .mnist-thumb:hover {
         transform: translateY(-2px);
         border-color: rgba(25, 231, 110, 0.24);
-        box-shadow: 0 10px 28px rgba(0,0,0,0.24);
+        box-shadow: 0 10px 28px rgba(17, 24, 17, 0.12);
       }
 
       .mnist-thumb.is-active {
         border-color: rgba(25, 231, 110, 0.36);
+        background:
+          linear-gradient(180deg, rgba(25, 231, 110, 0.16), rgba(255,255,255,0.4)),
+          color-mix(in srgb, var(--surface) 76%, var(--accent) 24%);
+        box-shadow:
+          0 0 0 1px rgba(25, 231, 110, 0.08),
+          0 12px 34px rgba(17, 24, 17, 0.12);
+      }
+
+      .mnist-thumb-label {
+        color: var(--heading);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      body[data-theme="dark"] .mnist-hero-card {
+        border-color: rgba(255, 255, 255, 0.08);
+        background:
+          radial-gradient(circle at top left, rgba(25, 231, 110, 0.16), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(0, 184, 107, 0.14), transparent 34%),
+          linear-gradient(180deg, rgba(8, 13, 10, 0.96), rgba(8, 10, 9, 0.98));
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.05),
+          0 24px 60px rgba(0,0,0,0.34);
+      }
+
+      body[data-theme="dark"] .mnist-hero::before {
+        background:
+          linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      }
+
+      body[data-theme="dark"] .mnist-badge {
+        border-color: rgba(25, 231, 110, 0.22);
+        background: rgba(25, 231, 110, 0.09);
+        color: #cffff0;
+      }
+
+      body[data-theme="dark"] .mnist-meta {
+        color: rgba(230, 255, 241, 0.7);
+      }
+
+      body[data-theme="dark"] .mnist-stage-main {
+        border-color: rgba(255,255,255,0.06);
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
+          rgba(10, 15, 12, 0.78);
+      }
+
+      body[data-theme="dark"] .mnist-big-shell {
+        border-color: rgba(25, 231, 110, 0.14);
+        background: linear-gradient(180deg, rgba(13, 20, 16, 0.96), rgba(7, 11, 9, 0.96));
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.05),
+          0 18px 40px rgba(0,0,0,0.32),
+          0 0 0 1px rgba(25, 231, 110, 0.05);
+      }
+
+      body[data-theme="dark"] .mnist-pixel {
+        border-color: rgba(255,255,255,0.03);
+        background: rgba(255,255,255,0.03);
+      }
+
+      body[data-theme="dark"] .mnist-pixel.level-0 {
+        background: rgba(255,255,255,0.028);
+        border-color: rgba(255,255,255,0.025);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.01);
+      }
+
+      body[data-theme="dark"] .mnist-stage-caption {
+        color: rgba(231, 255, 240, 0.82);
+      }
+
+      body[data-theme="dark"] .mnist-stage-caption strong {
+        color: #effff4;
+      }
+
+      body[data-theme="dark"] .mnist-stage-caption span:last-child {
+        color: rgba(231, 255, 240, 0.56);
+      }
+
+      body[data-theme="dark"] .mnist-thumb {
+        border-color: rgba(255,255,255,0.06);
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+          rgba(10, 14, 12, 0.82);
+      }
+
+      body[data-theme="dark"] .mnist-thumb:hover {
+        box-shadow: 0 10px 28px rgba(0,0,0,0.24);
+      }
+
+      body[data-theme="dark"] .mnist-thumb.is-active {
         background:
           linear-gradient(180deg, rgba(25, 231, 110, 0.08), rgba(255,255,255,0.02)),
           rgba(10, 16, 12, 0.9);
@@ -352,11 +445,8 @@
           0 12px 34px rgba(0,0,0,0.28);
       }
 
-      .mnist-thumb-label {
+      body[data-theme="dark"] .mnist-thumb-label {
         color: rgba(240, 255, 247, 0.9);
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
       }
 
       .mnist-thumb::after {
