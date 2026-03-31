@@ -521,6 +521,13 @@ li {
   border: 1px solid var(--border);
 }
 
+.digits-preview-img {
+  display: block;
+  max-width: 560px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
 .media-caption {
   margin: 10px 0 0;
   color: var(--muted);
