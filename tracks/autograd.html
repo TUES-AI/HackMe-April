@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoGrad Scientist | HackMe April</title>
-    <meta name="description" content="AutoGrad track за HackMe April: компактни datasets, baselines, ablations и research-first ML.">
+    <meta name="description" content="AutoGrad track за HackMe April: точни datasets, директни линкове и готово ML задание.">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,42 +18,76 @@
       <section class="page-banner reveal visible">
         <p class="eyebrow">Track 02</p>
         <h1>AutoGrad Scientist</h1>
-        <p>Работите с <a class="accent-cyan" href="https://github.com/TUES-AI/AutoGrad" target="_blank" rel="noreferrer">TUES-AI/AutoGrad</a> и правите чисти, добре описани експерименти.</p>
+        <p>Работите с <a class="accent-cyan" href="https://github.com/TUES-AI/AutoGrad" target="_blank" rel="noreferrer">TUES-AI/AutoGrad</a> и избирате една от трите точни dataset задачи по-долу.</p>
+      </section>
+
+      <section class="feature-split reveal">
+        <div class="feature-copy">
+          <div class="definition-grid">
+            <article class="definition-card">
+              <h3 class="track-title">Какво правите</h3>
+              <p>Правите baseline, поне 5 експеримента, една ablation таблица и кратък анализ на грешките.</p>
+            </article>
+            <article class="definition-card">
+              <h3 class="track-title">Какво предавате</h3>
+              <p><code>dataset_notes.md</code>, <code>baseline.md</code>, <code>experiments/</code>, <code>ablations.md</code>, <code>mistakes.md</code>.</p>
+            </article>
+            <article class="definition-card">
+              <h3 class="track-title">Какво носи точки</h3>
+              <p>Не най-високото число, а най-добре обяснените промени и най-чистият experiment trail.</p>
+            </article>
+          </div>
+        </div>
+        <div class="feature-media">
+          <div class="media-card">
+            <img src="../assets/autograd-digits.svg" alt="Digits preview for AutoGrad track">
+            <p class="media-caption">Визуална посока за hardest route: 8x8 digit classification.</p>
+          </div>
+        </div>
       </section>
 
       <section class="section reveal">
-        <div class="definition-grid">
-          <article class="definition-card">
-            <h3 class="track-title">Цел</h3>
-            <p>Да видите как малък neural net се държи върху подбрани datasets.</p>
+        <div class="artifact-grid">
+          <article class="artifact-card">
+            <p class="track-tag">Level 1</p>
+            <h3 class="track-title">Banknote Authentication</h3>
+            <p>Направете binary classifier и сравнете поне raw срещу normalized вход.</p>
+            <div class="dataset-links">
+              <a class="dataset-link" href="https://archive.ics.uci.edu/dataset/267/banknote+authentication" target="_blank" rel="noreferrer"><span>UCI dataset page</span><small>1372 rows · 4 features</small></a>
+            </div>
           </article>
-          <article class="definition-card">
-            <h3 class="track-title">Какво носи точки</h3>
-            <p>Baseline, controlled changes, ясни notes и reproducibility.</p>
+          <article class="artifact-card">
+            <p class="track-tag">Level 2</p>
+            <h3 class="track-title">Seeds</h3>
+            <p>Направете multiclass classifier и сравнете поне 2 различни architecture идеи.</p>
+            <div class="dataset-links">
+              <a class="dataset-link" href="https://archive.ics.uci.edu/dataset/236/seeds" target="_blank" rel="noreferrer"><span>UCI dataset page</span><small>210 rows · 7 features</small></a>
+            </div>
           </article>
-          <article class="definition-card">
-            <h3 class="track-title">Какво да предадете</h3>
-            <p><code>dataset_notes.md</code>, <code>baseline.md</code>, <code>experiments/</code>, <code>ablations.md</code>.</p>
+          <article class="artifact-card">
+            <p class="track-tag">Level 3</p>
+            <h3 class="track-title">Digits</h3>
+            <p>Работите с 8x8 digits и тествате hidden sizes, learning rate и preprocessing.</p>
+            <div class="dataset-links">
+              <a class="dataset-link" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html" target="_blank" rel="noreferrer"><span>scikit-learn docs</span><small>1797 samples · 10 classes</small></a>
+            </div>
           </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <div class="ideas-grid">
-          <article class="idea-card">
-            <div class="track-tag">Level 1</div>
-            <h3 class="track-title">Banknote Authentication</h3>
-            <p>Добър за baseline, normalization и sanity checks.</p>
+        <div class="definition-grid">
+          <article class="definition-card">
+            <h3 class="track-title">Minimum bar</h3>
+            <p>1 baseline, 5 експеримента, 1 ablation и 1 добре описана грешка.</p>
           </article>
-          <article class="idea-card">
-            <div class="track-tag">Level 2</div>
-            <h3 class="track-title">Seeds</h3>
-            <p>Добра стъпка към multiclass задачи.</p>
+          <article class="definition-card">
+            <h3 class="track-title">Добър bonus</h3>
+            <p>Repro script, loss plots, ясни notes защо сте сменили learning rate или hidden size.</p>
           </article>
-          <article class="idea-card">
-            <div class="track-tag">Level 3</div>
-            <h3 class="track-title">Digits</h3>
-            <p>По-труден вариант, но още реалистичен за small-net experiments.</p>
+          <article class="definition-card">
+            <h3 class="track-title">Не правете</h3>
+            <p>Да сменяте 10 неща наведнъж и после да не знаете кое е помогнало.</p>
           </article>
         </div>
       </section>

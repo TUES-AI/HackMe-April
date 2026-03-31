@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cipher Hunters | HackMe April</title>
-    <meta name="description" content="Crypto track за HackMe April: layered ciphers, hypotheses, tooling и research-first solving.">
+    <meta name="description" content="Crypto track за HackMe April: точни cipher задачи, ciphertext-и и solver workflow.">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,42 +18,84 @@
       <section class="page-banner reveal visible">
         <p class="eyebrow">Track 01</p>
         <h1>Cipher Hunters</h1>
-        <p>Track за хора, които обичат pattern analysis и reverse engineering.</p>
+        <p>Това е готовият crypto track за тази година: 3 отделни задачи, 3 различни подхода и точни ciphertext-и за атака още днес.</p>
+      </section>
+
+      <section class="feature-split reveal">
+        <div class="feature-copy">
+          <div class="definition-grid">
+            <article class="definition-card">
+              <h3 class="track-title">Какво правите</h3>
+              <p>Опитвате се да decipher-нете трите текста, като записвате хипотези, скриптове и неуспешни идеи.</p>
+            </article>
+            <article class="definition-card">
+              <h3 class="track-title">Какво предавате</h3>
+              <p><code>solver/</code>, <code>hypotheses.md</code>, <code>SOURCES.md</code> и кратък финален write-up.</p>
+            </article>
+            <article class="definition-card">
+              <h3 class="track-title">Важно</h3>
+              <p>Level 1 пази интервали, Level 2 ги маха, Level 3 не е character-level.</p>
+            </article>
+          </div>
+        </div>
+        <div class="feature-media">
+          <div class="media-card">
+            <p class="mini-label">Cipher animation</p>
+            <div class="crypto-animation">
+              <div class="crypto-row">
+                <span>signal</span>
+                <code id="crypto-anim-source">СЛЕДА ОТ РАБОТА</code>
+              </div>
+              <div class="crypto-row">
+                <span>transform</span>
+                <code id="crypto-anim-stage">...</code>
+              </div>
+              <div class="crypto-row">
+                <span>output</span>
+                <code id="crypto-anim-output">...</code>
+              </div>
+            </div>
+            <p class="media-caption">Анимацията е демонстрационна и не показва реалния solver path на задачите.</p>
+          </div>
+        </div>
       </section>
 
       <section class="section reveal">
-        <div class="definition-grid">
-          <article class="definition-card">
-            <h3 class="track-title">Цел</h3>
-            <p>Да decipher-нете текста или да стигнете възможно най-далеч с аргументиран подход.</p>
+        <div class="artifact-grid">
+          <article class="artifact-card">
+            <p class="track-tag">Level 1</p>
+            <h3 class="track-title">Vigenere върху български текст</h3>
+            <p>Източникът е кратък поетичен откъс. Интервалите и пунктуацията са запазени.</p>
+            <pre class="code-block cipher-block"><code>НПГЪЛНФ ТНДЕБ, ЮНЮЕЗ ШПОРФХ, ПНЕЦФР ЩБВШЧКТ ВТЦПЪГ ЯНМЕВХХ, ООБР ПЛШДЮР, НЯГМШ ЪОСХН, МАЪЪИШЪГ БНР ХПЩМАШЩР ЧРСФЯ.</code></pre>
           </article>
-          <article class="definition-card">
-            <h3 class="track-title">Какво носи точки</h3>
-            <p>Хипотези, скриптове, отхвърлени идеи и ясно обяснение как сте мислили.</p>
+          <article class="artifact-card">
+            <p class="track-tag">Level 2</p>
+            <h3 class="track-title">Affine + columnar transposition</h3>
+            <p>Тук интервалите са махнати и има втори слой за пренареждане на колоните.</p>
+            <pre class="code-block cipher-block"><code>КЛХЖП ЕБНЖН ЦЕЛКБ КДКЛИ РУМНВ УЛДЙФ КЧНШЪ ЯБЧНХ НКНКП ТНБЦК НСПФН НБЖПЬ ЛДЦШЕ МДЛЗЛ ЪГЕЬР ЦБКЕЕ</code></pre>
           </article>
-          <article class="definition-card">
-            <h3 class="track-title">Какво да предадете</h3>
-            <p><code>solver/</code>, <code>hypotheses.md</code>, <code>SOURCES.md</code> и кратък финален write-up.</p>
+          <article class="artifact-card">
+            <p class="track-tag">Level 3</p>
+            <h3 class="track-title">Layered byte/token cipher</h3>
+            <p>Не е character-level. Последователността е правена върху числово представяне и после е пакетирана.</p>
+            <pre class="code-block cipher-block"><code>H DR HS MM SQ 11 E6 G2 M7 XP 4V A1 F4 O1 U9 3T 9N I8 OC W7 2O DW JE PE XT 3V C8 HZ R9 XK 6S C7 GC RT XI 2E 81 KR MG SG V DV I4 NM TE 2H 83 IO NV U6 3N 9A I2 O2 W1 25 BI HU QL VZ 5H AA EX M7 YT 5C DO JO RN XJ 28 7Q KX MA Z5 2X 84 EH NG TD 2B 85 GA MD VB 1P DG</code></pre>
           </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <div class="ideas-grid">
-          <article class="idea-card">
-            <div class="track-tag">Level 1</div>
-            <h3 class="track-title">Classical structure</h3>
-            <p>Четим patterns, frequency analysis и basic scripting.</p>
+        <div class="definition-grid">
+          <article class="definition-card">
+            <h3 class="track-title">Hint policy</h3>
+            <p>При масово засядане hint-овете ще са за representation level, не за точен ключ или solver.</p>
           </article>
-          <article class="idea-card">
-            <div class="track-tag">Level 2</div>
-            <h3 class="track-title">Twist on the obvious</h3>
-            <p>Character-level reasoning още помага, но не стига само по себе си.</p>
+          <article class="definition-card">
+            <h3 class="track-title">Полезен старт</h3>
+            <p>Пишете micro-tools: frequency tables, n-gram checks, token counters и сравнения между хипотези.</p>
           </article>
-          <article class="idea-card">
-            <div class="track-tag">Level 3</div>
-            <h3 class="track-title">AI-flavored layered cipher</h3>
-            <p>Може да има tokenization layer или друг twist, който чупи лесните heuristics.</p>
+          <article class="definition-card">
+            <h3 class="track-title">Най-силен repo</h3>
+            <p>Този, в който личи как сте сменяли мнението си, а не само че сте уцелили правилния script.</p>
           </article>
         </div>
       </section>

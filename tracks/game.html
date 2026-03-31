@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Enemy | HackMe April</title>
-    <meta name="description" content="Learning Enemy track за HackMe April: adaptive enemies, game constraints и visible learning behavior.">
+    <meta name="description" content="Learning Enemy track за HackMe April: точен game brief, constraints и learning trace.">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,42 +18,67 @@
       <section class="page-banner reveal visible">
         <p class="eyebrow">Track 03</p>
         <h1>Learning Enemy</h1>
-        <p>Правите малка игра, в която enemy поведението реално се променя според играча.</p>
+        <p>Точният brief за тази година е <strong>Corridor Duel</strong> — малка арена, в която enemy turret се учи от начина, по който играчът dodgе-ва.</p>
+      </section>
+
+      <section class="feature-split reveal">
+        <div class="feature-copy">
+          <div class="definition-grid">
+            <article class="definition-card">
+              <h3 class="track-title">Core loop</h3>
+              <p>Играчът се движи в тесен corridor arena, стреля и dodge-ва. Enemy turret следи на коя страна бягате най-често и какъв е ритъмът ви.</p>
+            </article>
+            <article class="definition-card">
+              <h3 class="track-title">Какво е learning</h3>
+              <p>Enemy-то сменя aim, timing или позиция на база наблюдавани действия, а не просто става по-бързо.</p>
+            </article>
+            <article class="definition-card">
+              <h3 class="track-title">Какво предавате</h3>
+              <p>Playable build, <code>LEARNING_TRACE.md</code>, replay/GIF и доказателство за 13KB или 300 LOC режима.</p>
+            </article>
+          </div>
+        </div>
+        <div class="feature-media">
+          <div class="media-card">
+            <img src="../assets/game-arena.svg" alt="Corridor Duel concept art">
+            <p class="media-caption">Примерна посока: heatmap на dodge-овете и turret, който сменя aim pattern.</p>
+          </div>
+        </div>
       </section>
 
       <section class="section reveal">
-        <div class="definition-grid">
-          <article class="definition-card">
-            <h3 class="track-title">Какво се брои</h3>
-            <p>Enemy-то започва да предвижда dodge patterns, позиционира се според любимите ви маршрути, променя timing-а или използва прост model / table / heuristic, основан на данни от играча.</p>
+        <div class="artifact-grid">
+          <article class="artifact-card">
+            <p class="track-tag">Mode A</p>
+            <h3 class="track-title">13 KB zipped browser game</h3>
+            <p>Подходът за хора, които искат brutal размерно ограничение и максимално стегнат код.</p>
           </article>
-          <article class="definition-card">
-            <h3 class="track-title">Какво не се брои</h3>
-            <p>Просто повече HP, по-бързи bullet-и, fixed difficulty levels или чисто random spikes не са learning behavior.</p>
+          <article class="artifact-card">
+            <p class="track-tag">Mode B</p>
+            <h3 class="track-title">300 LOC no-engine</h3>
+            <p>Подходът за хора, които искат да мислят повече за логика, отколкото за компресия.</p>
           </article>
-          <article class="definition-card">
-            <h3 class="track-title">Какво да предадете</h3>
-            <p>Playable build, <code>LEARNING_TRACE.md</code> и кратък replay или screenshots.</p>
+          <article class="artifact-card">
+            <p class="track-tag">Always Required</p>
+            <h3 class="track-title">Visible learning trace</h3>
+            <p>Трябва да е видимо как enemy-то се променя: replay, side panel, log или GIF.</p>
           </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <div class="ideas-grid">
-          <article class="idea-card">
-            <div class="track-tag">Mode A</div>
-            <h3 class="track-title">13 KB zipped browser game</h3>
-            <p>Малка web игра с много строг размер.</p>
+        <div class="definition-grid">
+          <article class="definition-card">
+            <h3 class="track-title">Добри идеи</h3>
+            <p>Heatmaps, n-gram prediction, bandit logic, Q-table или tiny perceptron.</p>
           </article>
-          <article class="idea-card">
-            <div class="track-tag">Mode B</div>
-            <h3 class="track-title">300 LOC no-engine</h3>
-            <p>По-малко натиск от компресията и повече фокус върху логиката.</p>
+          <article class="definition-card">
+            <h3 class="track-title">Не се брои</h3>
+            <p>Повече HP, fixed difficulty levels или чисто random spikes.</p>
           </article>
-          <article class="idea-card">
-            <div class="track-tag">Always Required</div>
-            <h3 class="track-title">Visible learning trace</h3>
-            <p>Покажете как enemy-то се променя: log, replay, side panel, GIF или кратък demo режим.</p>
+          <article class="definition-card">
+            <h3 class="track-title">Печеливш ход</h3>
+            <p>Малка игра, в която adaptation-ът се разбира за 20 секунди.</p>
           </article>
         </div>
       </section>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Scratch for ML | HackMe April</title>
-    <meta name="description" content="Scratch for ML track за HackMe April: интерактивни ML playground-и, визуализации и обучение чрез експерименти.">
+    <meta name="description" content="Scratch for ML track за HackMe April: exact playground brief, reference media и live controls.">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,42 +18,88 @@
       <section class="page-banner reveal visible">
         <p class="eyebrow">Track 04</p>
         <h1>Scratch for ML</h1>
-        <p>Правите интерактивен playground, който прави ML по-ясно и пипаемо.</p>
+        <p>Точният brief е да направите browser playground за 2D classification, вдъхновен от TensorFlow Playground, но със собствена идея и собствен интерфейс.</p>
+      </section>
+
+      <section class="feature-split reveal">
+        <div class="feature-copy">
+          <div class="definition-grid">
+            <article class="definition-card">
+              <h3 class="track-title">Минимални функции</h3>
+              <p>Поне 3 live controls: activation, learning rate, hidden layers, noise или features.</p>
+            </article>
+            <article class="definition-card">
+              <h3 class="track-title">Трябва да се вижда</h3>
+              <p>Decision boundary, loss или друг видима промяна в модела по време на работа.</p>
+            </article>
+            <article class="definition-card">
+              <h3 class="track-title">Какво предавате</h3>
+              <p>Interactive demo, <code>README.md</code>, <code>design-notes.md</code> и кратко обяснение какво учи потребителят.</p>
+            </article>
+          </div>
+          <div class="media-card" style="margin-top:16px;">
+            <p class="mini-label">Mini playground mock</p>
+            <div class="playground-controls">
+              <div class="playground-control">
+                <label for="ml-lr"><span>Learning rate</span><strong id="ml-lr-value">0.03</strong></label>
+                <input id="ml-lr" type="range" min="1" max="100" value="30">
+              </div>
+              <div class="playground-control">
+                <label for="ml-noise"><span>Noise</span><strong id="ml-noise-value">12%</strong></label>
+                <input id="ml-noise" type="range" min="0" max="40" value="12">
+              </div>
+              <div class="playground-control">
+                <label for="ml-layers"><span>Hidden layers</span><strong id="ml-layers-value">2</strong></label>
+                <input id="ml-layers" type="range" min="1" max="4" value="2">
+              </div>
+            </div>
+            <div class="playground-output" id="ml-playground-output">
+              <strong>Stable boundary</strong>
+              <span>Това е пример как може да изглежда live feedback в проекта ви.</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-media">
+          <div class="media-card">
+            <img src="../assets/tf-playground-reference.png" alt="TensorFlow Playground reference screenshot">
+            <p class="media-caption">Reference screenshot for inspiration only: <a href="https://playground.tensorflow.org/" target="_blank" rel="noreferrer">TensorFlow Playground</a>.</p>
+          </div>
+        </div>
       </section>
 
       <section class="section reveal">
-        <div class="definition-grid">
-          <article class="definition-card">
-            <h3 class="track-title">Цел</h3>
-            <p>Да покажете как се държи малък модел и как параметрите му променят резултата.</p>
+        <div class="artifact-grid">
+          <article class="artifact-card">
+            <p class="track-tag">Idea A</p>
+            <h3 class="track-title">Mini neural playground</h3>
+            <p>2D dataset, няколко слоя и жива визуализация на decision boundary.</p>
           </article>
-          <article class="definition-card">
-            <h3 class="track-title">Какво носи точки</h3>
-            <p>Ясна идея, добра интерактивност и усещане, че човек разбира нещо ново.</p>
+          <article class="artifact-card">
+            <p class="track-tag">Idea B</p>
+            <h3 class="track-title">Block-style builder</h3>
+            <p>Опростен интерфейс тип Scratch, в който потребителят сглобява малък модел.</p>
           </article>
-          <article class="definition-card">
-            <h3 class="track-title">Какво да предадете</h3>
-            <p>Interactive demo, <code>README.md</code>, <code>design-notes.md</code> и кратко обяснение какво учи потребителят.</p>
+          <article class="artifact-card">
+            <p class="track-tag">Idea C</p>
+            <h3 class="track-title">Teaching visualizer</h3>
+            <p>Показва как loss, learning rate, noise или features влияят на резултата.</p>
           </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <div class="ideas-grid">
-          <article class="idea-card">
-            <div class="track-tag">Idea</div>
-            <h3 class="track-title">Мини neural playground</h3>
-            <p>2D dataset, няколко слоя и жива визуализация на decision boundary.</p>
+        <div class="definition-grid">
+          <article class="definition-card">
+            <h3 class="track-title">Силен проект</h3>
+            <p>Кратък, ясен, playable и полезен за ученик, който тепърва разбира как работи модел.</p>
           </article>
-          <article class="idea-card">
-            <div class="track-tag">Idea</div>
-            <h3 class="track-title">Block-style builder</h3>
-            <p>Опростен интерфейс тип Scratch, в който потребителят сглобява малък модел.</p>
+          <article class="definition-card">
+            <h3 class="track-title">Не е достатъчно</h3>
+            <p>Само красив екран без live controls и без видима връзка между промяната и резултата.</p>
           </article>
-          <article class="idea-card">
-            <div class="track-tag">Idea</div>
-            <h3 class="track-title">Учебна визуализация</h3>
-            <p>Показва как loss, learning rate, noise или features влияят на резултата.</p>
+          <article class="definition-card">
+            <h3 class="track-title">Best demo</h3>
+            <p>Някой влиза, мести 2-3 контроли и веднага разбира какво се случва.</p>
           </article>
         </div>
       </section>

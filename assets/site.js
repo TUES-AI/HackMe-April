@@ -265,6 +265,76 @@ function bindUI() {
   });
 }
 
+function initCryptoAnimation() {
+  const stage = document.getElementById("crypto-anim-stage");
+  const output = document.getElementById("crypto-anim-output");
+  if (!stage || !output) return;
+
+  const frames = [
+    {
+      stage: "VIGENERE -> КЛЮЧ + ИНТЕРВАЛИ",
+      output: "НПГЪЛНФ ТНДЕБ, ЮНЮЕЗ ШПОРФХ..."
+    },
+    {
+      stage: "AFFINE + COLUMNAR -> БЕЗ ИНТЕРВАЛИ",
+      output: "КЛХЖП ЕБНЖН ЦЕЛКБ КДКЛИ РУМНВ..."
+    },
+    {
+      stage: "BYTE/TOKEN LAYER -> ПАКЕТИРАНИ ГРУПИ",
+      output: "H DR HS MM SQ 11 E6 G2 M7 XP..."
+    }
+  ];
+
+  let index = 0;
+  const tick = () => {
+    const frame = frames[index % frames.length];
+    stage.textContent = frame.stage;
+    output.textContent = frame.output;
+    index += 1;
+  };
+
+  tick();
+  window.setInterval(tick, 1800);
+}
+
+function initMiniPlayground() {
+  const lr = document.getElementById("ml-lr");
+  const noise = document.getElementById("ml-noise");
+  const layers = document.getElementById("ml-layers");
+  const lrValue = document.getElementById("ml-lr-value");
+  const noiseValue = document.getElementById("ml-noise-value");
+  const layersValue = document.getElementById("ml-layers-value");
+  const output = document.getElementById("ml-playground-output");
+  if (!lr || !noise || !layers || !lrValue || !noiseValue || !layersValue || !output) return;
+
+  const render = () => {
+    const lrNum = Number(lr.value) / 1000;
+    const noiseNum = Number(noise.value);
+    const layersNum = Number(layers.value);
+    lrValue.textContent = lrNum.toFixed(3);
+    noiseValue.textContent = `${noiseNum}%`;
+    layersValue.textContent = String(layersNum);
+
+    let title = "Stable boundary";
+    let text = "Това е пример как може да изглежда live feedback в проекта ви.";
+    if (noiseNum > 24) {
+      title = "Noisy boundary";
+      text = "Повече noise прави разделянето по-трудно и границата става по-неясна.";
+    } else if (layersNum >= 3) {
+      title = "Higher capacity";
+      text = "Повече слоеве позволяват по-сложна граница, но искат по-добър контрол.";
+    } else if (lrNum > 0.06) {
+      title = "Aggressive learning";
+      text = "Learning rate-ът е висок и моделът може да стане нестабилен, ако прекалите.";
+    }
+
+    output.innerHTML = `<strong>${title}</strong><span>${text}</span>`;
+  };
+
+  [lr, noise, layers].forEach((input) => input.addEventListener("input", render));
+  render();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   buildHeader();
@@ -274,5 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
   buildFooter();
   bindUI();
   hydrateCountdowns();
+  initCryptoAnimation();
+  initMiniPlayground();
   setCurrentYear();
 });
