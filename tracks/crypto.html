@@ -1,91 +1,102 @@
 <!DOCTYPE html>
 <html lang="bg">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cipher Hunters | HackMe April</title>
-    <meta name="description" content="Crypto track за HackMe April: точни cipher задачи, ciphertext-и и solver workflow.">
-    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/styles.css">
-  </head>
-  <body data-root="../" data-page="crypto">
-    <div id="site-header"></div>
 
-    <main class="page-shell">
-      <section class="page-banner reveal visible">
-        <h1>Cipher Hunters</h1>
-        <p>3 задачи, 3 подхода, точни ciphertext-и.</p>
-      </section>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cipher Hunters | HackMe April</title>
+	<meta name="description"
+		content="Crypto track за HackMe April: точни cipher задачи, ciphertext-и и solver workflow.">
+	<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="../assets/styles.css">
+</head>
 
-      <section class="feature-split reveal">
-        <div class="feature-copy">
-          <ul class="check-list compact-list">
-            <li>Атакувате 3 текста с различна трудност.</li>
-            <li>Предавате <code>solver/</code>, <code>hypotheses.md</code>, <code>SOURCES_AND_AI.md</code>.</li>
-            <li>Level 1 пази интервали, Level 2 ги маха, Level 3 не е character-level.</li>
-          </ul>
-        </div>
-        <div class="feature-media">
-          <div class="media-card">
-            <p class="mini-label">Cipher animation</p>
-            <div class="crypto-animation">
-              <div class="crypto-row">
-                <span>signal</span>
-                <code id="crypto-anim-source">СЛЕДА ОТ РАБОТА</code>
-              </div>
-              <div class="crypto-row">
-                <span>transform</span>
-                <code id="crypto-anim-stage">...</code>
-              </div>
-              <div class="crypto-row">
-                <span>output</span>
-                <code id="crypto-anim-output">...</code>
-              </div>
-            </div>
-            <p class="media-caption">Анимацията е демонстрационна и не показва реалния solver path на задачите.</p>
-          </div>
-        </div>
-      </section>
+<body data-root="../" data-page="crypto">
+	<div id="site-header"></div>
 
-      <section class="section reveal">
-        <div class="artifact-grid">
-          <article class="artifact-card">
-            <p class="track-tag">Level 1</p>
-            <h3 class="track-title">Vigenere върху български текст</h3>
-            <p>Източникът е кратък поетичен откъс. Интервалите и пунктуацията са запазени.</p>
-            <pre class="code-block cipher-block"><code>НПГЪЛНФ ТНДЕБ, ЮНЮЕЗ ШПОРФХ, ПНЕЦФР ЩБВШЧКТ ВТЦПЪГ ЯНМЕВХХ, ООБР ПЛШДЮР, НЯГМШ ЪОСХН, МАЪЪИШЪГ БНР ХПЩМАШЩР ЧРСФЯ.</code></pre>
-          </article>
-          <article class="artifact-card">
-            <p class="track-tag">Level 2</p>
-            <h3 class="track-title">Affine + columnar transposition</h3>
-            <p>Тук интервалите са махнати и има втори слой за пренареждане на колоните.</p>
-            <pre class="code-block cipher-block"><code>КЛХЖП ЕБНЖН ЦЕЛКБ КДКЛИ РУМНВ УЛДЙФ КЧНШЪ ЯБЧНХ НКНКП ТНБЦК НСПФН НБЖПЬ ЛДЦШЕ МДЛЗЛ ЪГЕЬР ЦБКЕЕ</code></pre>
-          </article>
-          <article class="artifact-card">
-            <p class="track-tag">Level 3</p>
-            <h3 class="track-title">Layered byte/token cipher</h3>
-            <p>Не е character-level. Последователността е правена върху числово представяне и после е пакетирана.</p>
-            <pre class="code-block cipher-block"><code>H DR HS MM SQ 11 E6 G2 M7 XP 4V A1 F4 O1 U9 3T 9N I8 OC W7 2O DW JE PE XT 3V C8 HZ R9 XK 6S C7 GC RT XI 2E 81 KR MG SG V DV I4 NM TE 2H 83 IO NV U6 3N 9A I2 O2 W1 25 BI HU QL VZ 5H AA EX M7 YT 5C DO JO RN XJ 28 7Q KX MA Z5 2X 84 EH NG TD 2B 85 GA MD VB 1P DG</code></pre>
-          </article>
-        </div>
-      </section>
+	<main class="page-shell">
+		<section class="page-banner reveal visible">
+			<h1>Cipher Hunters</h1>
+			<p>3 задачи, 3 подхода, точни ciphertext-и.</p>
+		</section>
 
-      <section class="section reveal">
-        <article class="artifact-card">
-          <h3 class="track-title">Hint policy и добър старт</h3>
-          <ul class="check-list compact-list">
-            <li>Hint-овете ще са за representation level, не за точен ключ.</li>
-            <li>Пишете micro-tools: frequency tables, n-gram checks и token counters.</li>
-            <li>Най-силен е repo trail-ът, в който личи как сте сменяли мнението си.</li>
-          </ul>
-        </article>
-      </section>
-    </main>
+		<section class="feature-split reveal">
+			<div class="feature-copy">
+				<ul class="check-list compact-list">
+					<li>Атакувате 3 текста с различна трудност.</li>
+					<li>Предавате <code>solver/</code>, <code>hypotheses.md</code>, <code>SOURCES_AND_AI.md</code>.</li>
+					<li>Level 1 пази интервали, Level 2 ги маха, Level 3 не е character-level.</li>
+				</ul>
+			</div>
+			<div class="feature-media">
+				<div class="media-card">
+					<p class="mini-label">Cipher styles</p>
+					<div class="crypto-animation">
+						<div class="crypto-row">
+							<span>signal</span>
+							<code id="crypto-anim-source">СЛЕДА ОТ РАБОТА</code>
+						</div>
+						<div class="crypto-row">
+							<span>transform</span>
+							<code id="crypto-anim-stage">...</code>
+						</div>
+						<div class="crypto-row">
+							<span>output</span>
+							<code id="crypto-anim-output">...</code>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <div id="site-footer"></div>
-    <script src="../assets/site.js"></script>
-  </body>
+		<section class="section reveal">
+			<div class="artifact-grid">
+				<article class="artifact-card">
+					<p class="track-tag">Level 1</p>
+					<h3 class="track-title">Vigenere върху български текст</h3>
+					<p>Източникът е кратък поетичен откъс. Интервалите и пунктуацията са запазени.</p>
+					<pre class="code-block cipher-block"><code>НПГЪЛНФ ТНДЕБ, ЮНЮЕЗ ШПОРФХ, ПНЕЦФР ЩБВШЧКТ ВТЦПЪГ
+							ЯНМЕВХХ, ООБР ПЛШДЮР, НЯГМШ ЪОСХН, МАЪЪИШЪГ БНР ХПЩМАШЩР ЧРСФЯ.</code></pre>
+				</article>
+				<article class="artifact-card">
+					<p class="track-tag">Level 2</p>
+					<h3 class="track-title">Affine + columnar transposition</h3>
+					<p>Тук интервалите са махнати и има втори слой за пренареждане на колоните.</p>
+					<pre class="code-block cipher-block"><code>КЛХЖП ЕБНЖН ЦЕЛКБ КДКЛИ РУМНВ УЛДЙФ КЧНШЪ ЯБЧНХ НКНКП
+							ТНБЦК НСПФН НБЖПЬ ЛДЦШЕ МДЛЗЛ ЪГЕЬР ЦБКЕЕ</code></pre>
+				</article>
+				<article class="artifact-card">
+					<p class="track-tag">Level 3</p>
+					<h3 class="track-title">Layered byte/token cipher</h3>
+					<p>Не е character-level. Последователността е правена върху числово представяне и после е
+						пакетирана.</p>
+					<pre class="code-block cipher-block"><code>H DR HS MM SQ 11 E6 G2 M7 XP 4V A1 F4 O1 U9 3T 9N I8 OC
+							W7 2O DW JE PE XT 3V C8 HZ R9 XK 6S C7 GC RT XI 2E 81 KR MG SG V DV I4 NM TE 2H 83 IO NV U6
+							3N 9A I2 O2 W1 25 BI HU QL VZ 5H AA EX M7 YT 5C DO JO RN XJ 28 7Q KX MA Z5 2X 84 EH NG TD 2B
+							85 GA MD VB 1P DG</code></pre>
+				</article>
+			</div>
+		</section>
+
+		<section class="section reveal">
+			<article class="artifact-card">
+				<h3 class="track-title">Hint policy и добър старт</h3>
+				<ul class="check-list compact-list">
+					<li>Hint-овете ще са за representation level, не за точен ключ.</li>
+					<li>Пишете micro-tools: frequency tables, n-gram checks и token counters.</li>
+					<li>Най-силен е repo trail-ът, в който личи как сте сменяли мнението си.</li>
+				</ul>
+			</article>
+		</section>
+	</main>
+
+	<div id="site-footer"></div>
+	<script src="../assets/site.js"></script>
+</body>
+
 </html>
