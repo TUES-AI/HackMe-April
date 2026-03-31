@@ -93,7 +93,6 @@ function buildHeader() {
           ${desktopLinks}
         </nav>
         <div class="header-actions">
-          <a class="header-link" href="https://github.com/TUES-AI/HackMe-April" target="_blank" rel="noreferrer">GitHub</a>
           <button class="theme-toggle" type="button" aria-label="Тъмна тема">Тъмна тема</button>
         </div>
       </div>
