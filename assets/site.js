@@ -67,9 +67,15 @@ function buildHeader() {
   const target = document.getElementById("site-header");
   if (!target) return;
 
-  const quickLinks = NAV_GROUPS.flatMap((group) => group.links).map((link) => {
+  const allLinks = NAV_GROUPS.flatMap((group) => group.links);
+  const quickLinks = allLinks.map((link) => {
     const active = link.id === current ? "is-active" : "";
     return `<a class="mobile-tab ${active}" href="${root}${link.href}">${link.label}</a>`;
+  }).join("");
+
+  const desktopLinks = allLinks.map((link) => {
+    const active = link.id === current ? "is-active" : "";
+    return `<a class="desktop-link ${active}" href="${root}${link.href}">${link.label}</a>`;
   }).join("");
 
   target.innerHTML = `
@@ -83,6 +89,9 @@ function buildHeader() {
             <small>TUES AI Club</small>
           </span>
         </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          ${desktopLinks}
+        </nav>
         <div class="header-actions">
           <a class="header-link" href="https://github.com/TUES-AI/HackMe-April" target="_blank" rel="noreferrer">GitHub</a>
           <button class="theme-toggle" type="button" aria-label="Тъмна тема">Тъмна тема</button>
