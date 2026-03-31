@@ -550,7 +550,7 @@ li {
 
 .reward-logo-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 12px;
   margin-top: 18px;
 }
@@ -893,10 +893,6 @@ body[data-theme="dark"] .site-footer a {
   .feature-split,
   .artifact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .reward-logo-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .timeline-card {

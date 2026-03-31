@@ -1,107 +1,113 @@
 <!DOCTYPE html>
 <html lang="bg">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Правила | HackMe April</title>
-    <meta name="description" content="Правила, участие, repo изисквания и AI policy за HackMe April.">
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css">
-  </head>
-  <body data-root="./" data-page="rules">
-    <div id="site-header"></div>
 
-    <main class="page-shell">
-      <section class="page-banner reveal visible">
-        <h1>Правила</h1>
-        <p>Optional задание с реални изисквания.</p>
-      </section>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Правила | HackMe April</title>
+	<meta name="description" content="Правила, участие, repo изисквания и AI policy за HackMe April.">
+	<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="assets/styles.css">
+</head>
 
-      <section class="section reveal">
-        <ul class="check-list compact-list">
-          <li>1 до 4 души.</li>
-          <li>Избирате един track.</li>
-          <li>2 април - старт. 4 април - Google Meet. 18 април - финал.</li>
-        </ul>
-      </section>
+<body data-root="./" data-page="rules">
+	<div id="site-header"></div>
 
-      <section class="section reveal">
-        <div class="definition-grid">
-          <article class="definition-card">
-            <h3 class="track-title">Задължително в repo-то</h3>
-            <ul class="check-list">
-              <li>Редовни commits по сесии, не един финален push.</li>
-              <li><code>README.md</code> с ясно описание на целта и избрания track.</li>
-              <li><code>AI_USAGE.md</code> с честно описание как е използван AI.</li>
-              <li><code>SOURCES.md</code> с основните източници.</li>
-            </ul>
-          </article>
-          <article class="definition-card">
-            <h3 class="track-title">Във всяка сесия</h3>
-            <ul class="check-list">
-              <li>Каква беше хипотезата ви за конкретната сесия.</li>
-              <li>Какво тествахте и защо точно това.</li>
-              <li>Какво се счупи, как го разбрахте и какво променихте.</li>
-              <li>Каква е следващата стъпка.</li>
-            </ul>
-          </article>
-          <article class="definition-card">
-            <h3 class="track-title">Финал</h3>
-            <ul class="check-list">
-              <li>4-5 минути на team.</li>
-              <li>Покажете един силен извод, една грешка и една следваща идея.</li>
-              <li>Обяснете защо сте сменили посоката, ако сте я сменяли.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
+	<main class="page-shell">
+		<section class="page-banner reveal visible">
+			<h1>Правила</h1>
+			<p>Optional задание с реални изисквания.</p>
+		</section>
 
-      <section class="section reveal">
-        <div class="rules-grid">
-          <article class="rule-card">
-            <h3 class="track-title">AI е позволен</h3>
-            <ul class="clean-list">
-              <li>AI за research, prototyping, code suggestions и brainstorming.</li>
-              <li>AI за обяснения на concepts, документация и tool discovery.</li>
-              <li>AI-assisted debugging, ако е записано какво е предложил и кое сте запазили.</li>
-            </ul>
-          </article>
-          <article class="rule-card">
-            <h3 class="track-title">Трябва да описвате</h3>
-            <ul class="clean-list">
-              <li>Кои модели / tools сте използвали.</li>
-              <li>За какви задачи сте ги ползвали.</li>
-              <li>Кое от отговора сте отхвърлили и защо.</li>
-              <li>Поне един пример къде AI е грешил.</li>
-            </ul>
-          </article>
-          <article class="rule-card">
-            <h3 class="track-title">Не е достатъчно</h3>
-            <ul class="clean-list">
-              <li>Repo, пълен само с AI-generated code, без ясна следа от мислене.</li>
-              <li>Скрити prompts и нулеви notes какво е станало в процеса.</li>
-              <li>Copy-paste без собствена валидация и без разбиране как работи.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
+		<section class="section reveal">
+			<ul class="check-list compact-list">
+				<li>Малки отбори - 1 до 4 души. Ако сте повече или имате съотборници извън ТУЕС ми пишете</li>
+				<li>Избирате един track.</li>
+				<li>2 април - старт. 4 април - Google Meet. 18 април - финал.</li>
+			</ul>
+		</section>
 
-      <section class="section reveal">
-        <article class="artifact-card">
-          <h3 class="track-title">Подсказки и помощ</h3>
-          <ul class="check-list compact-list">
-            <li>Crypto: hint-ове може да насочват дали задачата е character-level, token-level или многослойна.</li>
-            <li>AutoGrad: ще се помага с избор на dataset, metrics и sanity checks.</li>
-            <li>Game / Scratch for ML: може да получите feedback за scope, UX или demo подход.</li>
-          </ul>
-        </article>
-      </section>
-    </main>
+		<section class="section reveal">
+			<div class="definition-grid">
+				<article class="definition-card">
+					<h3 class="track-title">Задължително в repo-то</h3>
+					<ul class="check-list">
+						<li>Редовни commits по сесии, не един финален push.</li>
+						<li><code>README.md</code> с ясно описание на целта и избрания track.</li>
+						<li><code>SOURCES_AND_AI.md</code> с източници и честно описание на AI usage.</li>
+						<li><code>media/images/</code> за screenshots, plots и други материали.</li>
+					</ul>
+				</article>
+				<article class="definition-card">
+					<h3 class="track-title">Във всяка сесия</h3>
+					<ul class="check-list">
+						<li>Каква беше хипотезата ви за конкретната сесия.</li>
+						<li>Какво тествахте и защо точно това.</li>
+						<li>Какво се счупи, как го разбрахте и какво променихте.</li>
+						<li>Каква е следващата стъпка.</li>
+					</ul>
+				</article>
+				<article class="definition-card">
+					<h3 class="track-title">Финал</h3>
+					<ul class="check-list">
+						<li>4-5 минути на team.</li>
+						<li>Покажете един силен извод, една грешка и една следваща идея.</li>
+						<li>Обяснете защо сте сменили посоката, ако сте я сменяли.</li>
+					</ul>
+				</article>
+			</div>
+		</section>
 
-    <div id="site-footer"></div>
-    <script src="assets/site.js"></script>
-  </body>
+		<section class="section reveal">
+			<div class="rules-grid">
+				<article class="rule-card">
+					<h3 class="track-title">AI е позволен</h3>
+					<ul class="clean-list">
+						<li>AI за research, prototyping, code suggestions и brainstorming.</li>
+						<li>AI за обяснения на concepts, документация и tool discovery.</li>
+						<li>AI-assisted debugging, ако е записано какво е предложил и кое сте запазили.</li>
+					</ul>
+				</article>
+				<article class="rule-card">
+					<h3 class="track-title">Трябва да описвате</h3>
+					<ul class="clean-list">
+						<li>Кои модели / tools сте използвали.</li>
+						<li>За какви задачи сте ги ползвали.</li>
+						<li>Кое от отговора сте отхвърлили и защо.</li>
+						<li>Поне един пример къде AI е грешил.</li>
+					</ul>
+				</article>
+				<article class="rule-card">
+					<h3 class="track-title">Не е достатъчно</h3>
+					<ul class="clean-list">
+						<li>Repo, пълен само с AI-generated code, без ясна следа от мислене.</li>
+						<li>Скрити prompts и нулеви notes какво е станало в процеса.</li>
+						<li>Copy-paste без собствена валидация и без разбиране как работи.</li>
+					</ul>
+				</article>
+			</div>
+		</section>
+
+		<section class="section reveal">
+			<article class="artifact-card">
+				<h3 class="track-title">Подсказки и помощ</h3>
+				<ul class="check-list compact-list">
+					<li>Crypto: hint-ове може да насочват дали задачата е character-level, token-level или многослойна.
+					</li>
+					<li>AutoGrad: ще се помага с избор на dataset, metrics и sanity checks.</li>
+					<li>Game / Scratch for ML: може да получите feedback за scope, UX или demo подход.</li>
+				</ul>
+			</article>
+		</section>
+	</main>
+
+	<div id="site-footer"></div>
+	<script src="assets/site.js"></script>
+</body>
+
 </html>
