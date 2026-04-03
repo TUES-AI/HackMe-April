@@ -8,6 +8,7 @@
 
 	function setStatus(node, tone, text) {
 		if (!node) return;
+		node.hidden = !text;
 		node.className = `status-banner ${tone}`;
 		node.textContent = text;
 	}
@@ -102,27 +103,18 @@
 
 	async function initAuthPage() {
 		const authStatus = byId("auth-status");
-		const sessionCard = byId("session-card");
-		const sessionCopy = byId("session-copy");
 		const sendCodeForm = byId("send-code-form");
 		const verifyForm = byId("verify-form");
 		const loginForm = byId("login-form");
-		const logoutButton = byId("logout-button");
-
-		sessionCard.hidden = true;
-		sessionCopy.textContent = "";
 
 		const refreshSession = async () => {
 			const me = await portal.fetchCurrentUser(true);
 			await portal.hydrateAuthAction();
 			if (me?.user) {
-				sessionCard.hidden = false;
-				sessionCopy.textContent = `${me.user.email}${me.team ? ` · ${me.team.team_name}` : " · no team yet"}`;
-				setStatus(authStatus, "success", me.team ? "You are logged in and your team is already registered." : "You are logged in. Continue to the team registration page.");
+				setStatus(authStatus, "success", me.team ? "You are logged in. You can continue to your team page." : "You are logged in. Continue to team registration.");
 				return;
 			}
-			sessionCard.hidden = true;
-			setStatus(authStatus, "muted", "Use a valid TUES student email to request a confirmation code or log in.");
+			setStatus(authStatus, "muted", "");
 		};
 
 			sendCodeForm?.addEventListener("submit", async (event) => {
@@ -173,16 +165,6 @@
 			} catch (error) {
 				setStatus(authStatus, "error", error.message || "Login failed.");
 			}
-		});
-
-		logoutButton?.addEventListener("click", async () => {
-			try {
-				await portal.apiFetch("/api/auth/logout", { method: "POST" });
-			} catch (_) {
-				// ignore network failures on logout
-			}
-			portal.clearStoredToken();
-			await refreshSession();
 		});
 
 		await refreshSession();
