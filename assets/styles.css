@@ -599,6 +599,10 @@ li {
   max-height: 120px;
 }
 
+.reward-logo-card-surprise .reward-logo-gpu {
+  max-height: 92px;
+}
+
 .cipher-block {
   white-space: pre-wrap;
   word-break: break-word;
