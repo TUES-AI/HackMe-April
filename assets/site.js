@@ -101,7 +101,8 @@ async function apiFetch(path, options = {}) {
 	const init = {
 		method: options.method || "GET",
 		headers,
-		mode: "cors"
+		mode: "cors",
+		cache: "no-store"
 	};
 
 	if (token) {

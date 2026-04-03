@@ -100,18 +100,7 @@
     `;
 	}
 
-	async function showBackendStatus(node) {
-		try {
-			const baseUrl = await portal.getBackendBaseUrl();
-			const health = await portal.apiFetch("/api/health", { token: null });
-			setStatus(node, "success", `Backend online: ${baseUrl} ${health.ok ? "· ready" : ""}`);
-		} catch (error) {
-			setStatus(node, "warning", error.message || "Backend link is not ready yet");
-		}
-	}
-
 	async function initAuthPage() {
-		const backendStatus = byId("backend-status");
 		const authStatus = byId("auth-status");
 		const sessionCard = byId("session-card");
 		const sessionCopy = byId("session-copy");
@@ -120,7 +109,8 @@
 		const loginForm = byId("login-form");
 		const logoutButton = byId("logout-button");
 
-		await showBackendStatus(backendStatus);
+		sessionCard.hidden = true;
+		sessionCopy.textContent = "";
 
 		const refreshSession = async () => {
 			const me = await portal.fetchCurrentUser(true);
@@ -199,7 +189,6 @@
 	}
 
 	async function initTeamPage() {
-		const backendStatus = byId("team-backend-status");
 		const pageStatus = byId("team-page-status");
 		const gate = byId("team-login-gate");
 		const workspace = byId("team-workspace");
@@ -212,8 +201,6 @@
 		const githubLink = byId("team-github-link");
 		const formHint = byId("team-form-hint");
 		const teamTitle = byId("team-form-title");
-
-		await showBackendStatus(backendStatus);
 
 		const render = async () => {
 			const me = await portal.fetchCurrentUser(true);
