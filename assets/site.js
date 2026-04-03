@@ -22,7 +22,7 @@ const NAV_GROUPS = [
 const IMPORTANT_DATES = {
 	start: new Date("2026-04-02T09:00:00+03:00"),
 	support: new Date("2026-04-04T11:00:00+03:00"),
-	deadline: new Date("2026-04-18T10:00:00+03:00")
+	deadline: new Date("2026-04-25T14:00:00+03:00")
 };
 
 const AUTH_TOKEN_KEY = "hackme-auth-token";
@@ -299,7 +299,7 @@ function buildSidebar() {
       ${groups}
       <div class="sidebar-note">
         <p class="sidebar-note-title">Финал</p>
-        <p>18 April 2026</p>
+        <p>25 April 2026 · 14:00</p>
         <a href="https://github.com/TUES-AI/HackMe-April" target="_blank" rel="noreferrer">Repo hub</a>
       </div>
     </div>
@@ -325,7 +325,7 @@ function buildFooter() {
           <p class="footer-title">Timeline</p>
           <p>Старт: 2 April 2026</p>
           <p>Среща: 4 April 2026</p>
-          <p>Финал: 18 April 2026</p>
+          <p>Финал: 25 April 2026 · 14:00</p>
         </div>
       </div>
     </footer>

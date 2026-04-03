@@ -11,6 +11,15 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parent.parent
 LINK_PATH = ROOT_DIR / ".link"
 TUNNEL_REGEX = re.compile(r"https://[-a-z0-9]+\.trycloudflare\.com")
+SAFE_AUTOCOMMIT_PATHS = {".link"}
+BLOCKED_PATH_PATTERNS = [
+    re.compile(r"(^|/)\.env($|\.)"),
+    re.compile(r"(^|/).*\.db$"),
+    re.compile(r"(^|/).*\.sqlite3$"),
+    re.compile(r"(^|/)data/"),
+    re.compile(r"(^|/)__pycache__/"),
+    re.compile(r"(^|/).*\.pyc$"),
+]
 
 
 def wait_for_health(url: str, timeout: float = 30.0) -> None:
@@ -69,8 +78,52 @@ def write_link(url: str) -> None:
     LINK_PATH.write_text(f"{url}\n", encoding="utf-8")
 
 
+def git_lines(*args: str) -> list[str]:
+    result = subprocess.run(
+        ["git", *args],
+        cwd=ROOT_DIR,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return [line for line in result.stdout.splitlines() if line.strip()]
+
+
+def has_blocked_path(paths: list[str]) -> str | None:
+    for path in paths:
+        normalized = path.strip()
+        for pattern in BLOCKED_PATH_PATTERNS:
+            if pattern.search(normalized):
+                return normalized
+    return None
+
+
+def validate_staged_paths(paths: list[str]) -> None:
+    blocked = has_blocked_path(paths)
+    if blocked:
+        raise RuntimeError(f"Refusing to commit blocked path: {blocked}")
+    unexpected = [path for path in paths if path not in SAFE_AUTOCOMMIT_PATHS]
+    if unexpected:
+        joined = ", ".join(unexpected)
+        raise RuntimeError(
+            "Refusing to auto-commit because files other than .link are staged after git add .: "
+            f"{joined}. Commit application/frontend/backend changes manually."
+        )
+
+
 def git_publish(message: str) -> None:
-    subprocess.run(["git", "add", ".link"], cwd=ROOT_DIR, check=True)
+    previously_staged = git_lines("diff", "--cached", "--name-only")
+    subprocess.run(["git", "add", "."], cwd=ROOT_DIR, check=True)
+    staged_now = git_lines("diff", "--cached", "--name-only")
+    try:
+        validate_staged_paths(staged_now)
+    except Exception:
+        subprocess.run(["git", "restore", "--staged", "."], cwd=ROOT_DIR, check=True)
+        if previously_staged:
+            subprocess.run(["git", "add", "--", *previously_staged], cwd=ROOT_DIR, check=True)
+        raise
+    if not staged_now:
+        raise RuntimeError("Nothing is staged for commit")
     subprocess.run(["git", "commit", "-m", message], cwd=ROOT_DIR, check=True)
     subprocess.run(["git", "push"], cwd=ROOT_DIR, check=True)
 
