@@ -6,8 +6,12 @@ from datetime import datetime, timedelta, timezone
 from werkzeug.security import check_password_hash, generate_password_hash
 
 ELSYS_EMAIL_REGEX = re.compile(
-    r"^[a-z]+(?:-[a-z]+)*\.[a-z]\.[a-z]+(?:-[a-z]+)*\.(201[5-9]|202[0-9]|2030)@elsys-bg\.org$"
+    r"^[A-Za-z]+(?:-[A-Za-z]+)*\.[A-Za-z]\.[A-Za-z]+(?:-[A-Za-z]+)*\.(201[5-9]|202[0-9]|2030)@elsys-bg\.org$"
 )
+ALLOWED_NON_ELSYS = {
+    "ivan.iliev2103@gmail.com",
+    "yoan.hristov7821@gmail.com",
+}
 
 TRACK_OPTIONS = [
     {"key": "crypto", "label": "Cipher Hunters"},
@@ -29,7 +33,8 @@ def normalize_email(email: str) -> str:
 
 
 def is_allowed_student_email(email: str) -> bool:
-    return bool(ELSYS_EMAIL_REGEX.match(normalize_email(email)))
+    normalized = normalize_email(email)
+    return normalized in ALLOWED_NON_ELSYS or bool(ELSYS_EMAIL_REGEX.match(normalized))
 
 
 def generate_code() -> str:
