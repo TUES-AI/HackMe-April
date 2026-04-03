@@ -17,7 +17,7 @@
     <main class="page-shell">
       <section class="page-banner reveal visible">
         <h1>AutoGrad Scientist</h1>
-        <p>Работите с <a class="accent-cyan" href="https://github.com/TUES-AI/AutoGrad" target="_blank" rel="noreferrer">TUES-AI/AutoGrad</a> и избирате dataset.</p>
+        <p>Работите с <a class="accent-cyan" href="https://github.com/TUES-AI/AutoGrad" target="_blank" rel="noreferrer">TUES-AI/AutoGrad</a> и избирате dataset. За бонус варианта първо трябва да разширите самия AutoGrad.</p>
       </section>
 
       <section class="feature-split reveal">
@@ -25,6 +25,7 @@
           <ul class="check-list compact-list">
             <li>Baseline, 5 експеримента, 1 ablation.</li>
             <li>Предавате <code>dataset_notes.md</code>, <code>baseline.md</code>, <code>experiments/</code>, <code>mistakes.md</code>.</li>
+            <li>Първите 3 нива са напълно решими с малък MLP върху сегашния AutoGrad; бонусът е за хора, които искат да добавят CNN логика вътре в него.</li>
           </ul>
         </div>
         <div class="feature-media">
@@ -84,6 +85,14 @@
               <a class="dataset-link" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html" target="_blank" rel="noreferrer"><span>scikit-learn docs</span><small>1797 samples · 10 classes</small></a>
             </div>
           </article>
+          <article class="artifact-card">
+            <p class="track-tag">Bonus · Advanced</p>
+            <h3 class="track-title">Kuzushiji-MNIST with CNN</h3>
+            <p>Това е бонус за напреднали. Работите с 28x28 изображения и идеята е да направите истински CNN, но пак върху вашия AutoGrad. Това означава първо да добавите нужните операции вътре в библиотеката, вместо да ползвате готов deep learning framework.</p>
+            <div class="dataset-links">
+              <a class="dataset-link" href="https://github.com/rois-codh/kmnist" target="_blank" rel="noreferrer"><span>KMNIST dataset</span><small>28x28 grayscale · harder than MNIST</small></a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -94,6 +103,17 @@
           <li>Bonus: repro script, loss plots.</li>
           <li>Не сменяйте 10 неща наведнъж.</li>
         </ul>
+      </section>
+
+      <section class="section reveal">
+        <article class="artifact-card">
+          <h3 class="track-title">Важно за бонус варианта</h3>
+          <ul class="check-list compact-list">
+            <li>Проверихме сегашната имплементация на <code>../AutoGrad</code>: тя поддържа малки fully connected мрежи, но няма convolution, pooling, reshape и tensor операции.</li>
+            <li>Затова KMNIST не е просто още един dataset, а разширение на самия AutoGrad с CNN възможности.</li>
+            <li>Ако изберете този бонус, очакването е да покажете и какви нови градивни блокове сте добавили в библиотеката, за да стане CNN-ът възможен.</li>
+          </ul>
+        </article>
       </section>
     </main>
 
