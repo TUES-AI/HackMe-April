@@ -1,6 +1,7 @@
 import argparse
 import os
 import re
+import socket
 import subprocess
 import sys
 import time
@@ -32,6 +33,29 @@ def wait_for_health(url: str, timeout: float = 30.0) -> None:
         except Exception:
             time.sleep(0.5)
     raise RuntimeError("Backend did not become healthy in time")
+
+
+def is_port_busy(port: int) -> bool:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.settimeout(0.5)
+        return sock.connect_ex(("127.0.0.1", port)) == 0
+
+
+def read_process_output(process: subprocess.Popen[str]) -> str:
+    if not process.stdout:
+        return ""
+    try:
+        return process.stdout.read().strip()
+    except Exception:
+        return ""
+
+
+def ensure_backend_running(process: subprocess.Popen[str]) -> None:
+    if process.poll() is None:
+        return
+    output = read_process_output(process)
+    details = f"\n{output}" if output else ""
+    raise RuntimeError(f"Backend process exited unexpectedly.{details}")
 
 
 def start_backend(python_bin: str, port: int) -> subprocess.Popen[str]:
@@ -147,10 +171,16 @@ def main() -> int:
     parser.add_argument("--commit-message", default="update backend tunnel link", help="Commit message for .link updates")
     args = parser.parse_args()
 
+    if is_port_busy(args.port):
+        raise SystemExit(
+            f"Port {args.port} is already in use. Stop the existing backend first or run with --port <other-port>."
+        )
+
     backend = start_backend(args.python, args.port)
     tunnel = None
     try:
         wait_for_health(f"http://127.0.0.1:{args.port}/api/health")
+        ensure_backend_running(backend)
         tunnel = start_tunnel(args.port)
         tunnel_url = extract_tunnel_url(tunnel)
         write_link(tunnel_url)
@@ -159,7 +189,14 @@ def main() -> int:
             git_publish(args.commit_message)
             print("Committed and pushed .link")
         print("Backend and tunnel are running. Press Ctrl+C to stop.")
-        stream_process_output(backend, "backend")
+        while True:
+            ensure_backend_running(backend)
+            if tunnel and tunnel.poll() is not None:
+                output = read_process_output(tunnel)
+                details = f"\n{output}" if output else ""
+                raise RuntimeError(f"Cloudflared tunnel exited unexpectedly.{details}")
+            stream_process_output(backend, "backend")
+            time.sleep(0.5)
     except KeyboardInterrupt:
         print("Stopping backend and tunnel...")
     finally:
