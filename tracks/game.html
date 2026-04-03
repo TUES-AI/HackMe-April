@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Enemy | HackMe April</title>
-    <meta name="description" content="Learning Enemy track за HackMe April: точен game brief, constraints и learning trace.">
+    <meta name="description" content="Learning Enemy за HackMe April: 2D игра по ваш избор, в която враговете се учат от играча и правят играта по-трудна.">
     <link rel="icon" href="../assets/favicon-tues.png" type="image/png" sizes="64x64">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,21 +17,21 @@
     <main class="page-shell">
       <section class="page-banner reveal visible">
         <h1>Learning Enemy</h1>
-        <p><strong>Corridor Duel</strong> — малка арена, enemy turret се учи от dodge паттерни.</p>
+        <p>Направете <strong>2D игра по ваш избор</strong>, в която един или повече врагове се учат от играча и с времето започват да го затрудняват повече.</p>
       </section>
 
       <section class="feature-split reveal">
         <div class="feature-copy">
           <ul class="check-list compact-list">
-            <li>Turret следи къде dodge-вате.</li>
-            <li>Learning: сменя aim, timing или позиция.</li>
-            <li>Предавате playable build, <code>LEARNING_TRACE.md</code>, replay/GIF.</li>
+            <li>Играта може да е shooter, arena, dodge, maze, platformer или друг малък 2D формат.</li>
+            <li>Важно е да има враг или врагове, които наблюдават поведението на играча и променят стратегията си.</li>
+            <li>Предавате работещ build, <code>LEARNING_TRACE.md</code> и кратко replay/GIF, в което се вижда промяната.</li>
           </ul>
         </div>
         <div class="feature-media">
           <div class="media-card">
             <img src="../assets/game-arena.svg" alt="Corridor Duel concept art">
-            <p class="media-caption">Примерна посока: heatmap на dodge-овете и turret, който сменя aim pattern.</p>
+            <p class="media-caption">Това е само примерна посока, не задължителен жанр: малка арена, карта на движенията и враг, който променя начина си на атака.</p>
           </div>
         </div>
       </section>
@@ -39,26 +39,50 @@
       <section class="section reveal">
         <div class="artifact-grid">
           <article class="artifact-card">
-            <p class="track-tag">Mode A</p>
+            <p class="track-tag">Ограничение A</p>
             <h3 class="track-title">13 KB zipped</h3>
+            <p>Ако правите супер компактна версия, целият проект трябва да се събере в този размер.</p>
           </article>
           <article class="artifact-card">
-            <p class="track-tag">Mode B</p>
+            <p class="track-tag">Ограничение B</p>
             <h3 class="track-title">300 LOC</h3>
+            <p>Алтернативно може да работите с много малко код, стига логиката за учене да е реална и видима.</p>
           </article>
           <article class="artifact-card">
-            <p class="track-tag">Required</p>
-            <h3 class="track-title">Learning trace</h3>
-            <p>Видимо как enemy-то се променя.</p>
+            <p class="track-tag">Задължително</p>
+            <h3 class="track-title">Следа от учене</h3>
+            <p>Трябва ясно да се вижда как врагът се променя с времето и защо играта става по-трудна.</p>
           </article>
         </div>
       </section>
 
       <section class="section reveal">
-        <h3 class="track-title">Какво работи</h3>
+        <article class="artifact-card">
+          <h3 class="track-title">Какво точно се очаква</h3>
+          <ul class="check-list compact-list">
+            <li>Играчът прави едни и същи или сходни движения, а врагът започва да ги разпознава.</li>
+            <li>След това врагът променя стрелба, посока, позициониране, скорост, капани или избор на цел.</li>
+            <li>Резултатът трябва да е видим в самата игра, а не само описан в markdown.</li>
+            <li>Не е нужно да ползвате сложен ML - може да е и с правила, стига да има реално учене от данни за играча.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section reveal">
+        <h3 class="track-title">Какво работи добре</h3>
         <ul class="check-list compact-list">
-          <li>Добри идеи: heatmaps, n-gram prediction, Q-table, tiny perceptron.</li>
-          <li>Не се брои: повече HP, fixed difficulty, random spikes.</li>
+          <li>Добри идеи: карта на движенията, предсказване на следваща посока, таблица със състояния или малък модел.</li>
+          <li>Може да имате един враг, който става по-умен, или няколко врага, които учат различни неща.</li>
+          <li>Силно решение е това, при което ясно личи какво е научил врагът от конкретен стил на игра.</li>
+        </ul>
+      </section>
+
+      <section class="section reveal">
+        <h3 class="track-title">Какво не се брои за учене</h3>
+        <ul class="check-list compact-list">
+          <li>Просто повече живот, повече damage или фиксирано вдигане на трудността с времето.</li>
+          <li>Чисто случаен хаос без връзка с поведението на играча.</li>
+          <li>Предварително написан pattern, който е еднакъв във всяка игра и не използва нищо от текущата сесия.</li>
         </ul>
       </section>
     </main>
