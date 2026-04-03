@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Log In | HackMe April</title>
+	<meta name="description" content="TUES student login and email verification for HackMe April.">
+	<link rel="icon" href="assets/favicon-tues.png" type="image/png" sizes="64x64">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-root="./" data-page="auth" data-app="auth">
+	<div id="site-header"></div>
+
+	<main class="page-shell">
+		<section class="page-banner reveal visible">
+			<h1>Log In</h1>
+			<p>Log in as a TUES student, verify your school email, and continue to team registration.</p>
+		</section>
+
+		<section class="section reveal auth-grid">
+			<article class="artifact-card auth-card auth-card-wide">
+				<h2 class="section-title">Portal status</h2>
+				<p id="backend-status" class="status-banner muted">Checking backend link...</p>
+				<p id="auth-status" class="status-banner muted">Waiting for your input.</p>
+				<div id="session-card" class="session-card" hidden>
+					<p class="mini-label">Logged in</p>
+					<p id="session-copy"></p>
+					<div class="button-row compact-actions">
+						<a class="btn" href="team.html">Go to team page</a>
+						<button id="logout-button" class="btn secondary" type="button">Log Out</button>
+					</div>
+				</div>
+			</article>
+
+			<article class="artifact-card auth-card">
+				<h2 class="section-title">Request a code</h2>
+				<p>Use your TUES student email to receive a short confirmation code.</p>
+				<form id="send-code-form" class="portal-form">
+					<label class="field-row">
+						<span>Ученически имейл</span>
+						<input id="register-email" type="email" placeholder="ivan.a.petrov.2024@elsys-bg.org" required>
+					</label>
+					<button class="btn" type="submit">Send code</button>
+				</form>
+			</article>
+
+			<article class="artifact-card auth-card">
+				<h2 class="section-title">Verify and set password</h2>
+				<p>After the code arrives in your mailbox, confirm it here and set your password.</p>
+				<form id="verify-form" class="portal-form">
+					<label class="field-row">
+						<span>Ученически имейл</span>
+						<input id="verify-email" type="email" placeholder="ivan.a.petrov.2024@elsys-bg.org" required>
+					</label>
+					<label class="field-row">
+						<span>Confirmation code</span>
+						<input id="verify-code" type="text" inputmode="numeric" maxlength="4" placeholder="1234" required>
+					</label>
+					<label class="field-row">
+						<span>Password</span>
+						<input id="verify-password" type="password" minlength="4" placeholder="At least 4 characters" required>
+					</label>
+					<button class="btn" type="submit">Verify and log in</button>
+				</form>
+			</article>
+
+			<article class="artifact-card auth-card auth-card-wide">
+				<h2 class="section-title">Already registered?</h2>
+				<p>Log in with the school email and password you already set.</p>
+				<form id="login-form" class="portal-form portal-form-inline">
+					<label class="field-row">
+						<span>Ученически имейл</span>
+						<input id="login-email" type="email" placeholder="ivan.a.petrov.2024@elsys-bg.org" required>
+					</label>
+					<label class="field-row">
+						<span>Password</span>
+						<input id="login-password" type="password" minlength="4" required>
+					</label>
+					<button class="btn" type="submit">Log In</button>
+				</form>
+			</article>
+		</section>
+	</main>
+
+	<div id="site-footer"></div>
+	<script src="assets/site.js?v=7"></script>
+	<script src="assets/portal.js?v=2"></script>
+</body>
+
+</html>

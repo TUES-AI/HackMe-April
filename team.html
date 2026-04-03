@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Register a Team | HackMe April</title>
+	<meta name="description" content="Register a HackMe April team, choose tracks, and draft your signup board.">
+	<link rel="icon" href="assets/favicon-tues.png" type="image/png" sizes="64x64">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-root="./" data-page="team" data-app="team">
+	<div id="site-header"></div>
+
+	<main class="page-shell">
+		<section class="page-banner reveal visible">
+			<h1>Register a Team</h1>
+			<p>Create your team signup board, choose one or more tracks, and lock in the player list.</p>
+		</section>
+
+		<section class="section reveal">
+			<p id="team-backend-status" class="status-banner muted">Checking backend link...</p>
+			<p id="team-page-status" class="status-banner muted">Waiting for authentication state...</p>
+		</section>
+
+		<section id="team-login-gate" class="section reveal" hidden>
+			<article class="artifact-card">
+				<h2 class="section-title">Log in first</h2>
+				<p>You need a verified TUES student account before you can register a team.</p>
+				<a class="btn" href="auth.html">Go to Log In</a>
+			</article>
+		</section>
+
+		<section id="team-workspace" class="section reveal team-grid" hidden>
+			<article class="artifact-card team-form-card">
+				<h2 id="team-form-title" class="section-title">Register a Team</h2>
+				<p id="team-form-hint">Team GitHub link and chosen tracks can be edited later.</p>
+				<form id="team-form" class="portal-form">
+					<label class="field-row">
+						<span>Team name</span>
+						<input id="team-name" type="text" maxlength="64" placeholder="Gradient Ninjas" required>
+					</label>
+					<label class="field-row">
+						<span>Team GitHub link</span>
+						<input id="team-github-link" type="url" placeholder="https://github.com/org/repo" required>
+					</label>
+					<label class="field-row">
+						<span>Chosen track</span>
+						<div id="team-track-picker"></div>
+					</label>
+					<label class="field-row">
+						<span>Number of players</span>
+						<select id="player-count">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</label>
+					<div>
+						<p class="mini-label">Players</p>
+						<div id="player-fields" class="player-fields"></div>
+					</div>
+					<button id="team-submit" class="btn" type="submit">Create team</button>
+				</form>
+			</article>
+
+			<div id="team-board" class="board-grid"></div>
+		</section>
+	</main>
+
+	<div id="site-footer"></div>
+	<script src="assets/site.js?v=7"></script>
+	<script src="assets/portal.js?v=2"></script>
+</body>
+
+</html>

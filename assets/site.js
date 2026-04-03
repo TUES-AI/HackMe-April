@@ -25,12 +25,152 @@ const IMPORTANT_DATES = {
 	deadline: new Date("2026-04-18T10:00:00+03:00")
 };
 
+const AUTH_TOKEN_KEY = "hackme-auth-token";
+const TRACK_OPTIONS = [
+	{ key: "crypto", label: "Cipher Hunters" },
+	{ key: "autograd", label: "AutoGrad Scientist" },
+	{ key: "game", label: "Learning Enemy" },
+	{ key: "toolsmith", label: "Scratch for ML" }
+];
+
+let backendBaseUrlPromise = null;
+let currentUserPromise = null;
+
 function getRoot() {
 	return document.body.dataset.root || "./";
 }
 
 function getCurrentPage() {
 	return document.body.dataset.page || "home";
+}
+
+function getStoredToken() {
+	try {
+		return window.localStorage.getItem(AUTH_TOKEN_KEY) || "";
+	} catch (_) {
+		return "";
+	}
+}
+
+function storeToken(token) {
+	try {
+		window.localStorage.setItem(AUTH_TOKEN_KEY, token);
+	} catch (_) {
+		// ignore storage failures
+	}
+	currentUserPromise = null;
+}
+
+function clearStoredToken() {
+	try {
+		window.localStorage.removeItem(AUTH_TOKEN_KEY);
+	} catch (_) {
+		// ignore storage failures
+	}
+	currentUserPromise = null;
+}
+
+async function getBackendBaseUrl(force = false) {
+	if (!force && backendBaseUrlPromise) {
+		return backendBaseUrlPromise;
+	}
+
+	backendBaseUrlPromise = (async () => {
+		const response = await fetch(`${getRoot()}.link?ts=${Date.now()}`, { cache: "no-store" });
+		if (!response.ok) {
+			throw new Error("Backend link is not published yet");
+		}
+		const raw = (await response.text()).trim();
+		if (!/^https?:\/\//.test(raw)) {
+			throw new Error("Backend link is not configured");
+		}
+		return raw.replace(/\/+$/, "");
+	})();
+
+	try {
+		return await backendBaseUrlPromise;
+	} catch (error) {
+		backendBaseUrlPromise = null;
+		throw error;
+	}
+}
+
+async function apiFetch(path, options = {}) {
+	const headers = new Headers(options.headers || {});
+	const token = options.token === null ? "" : options.token || getStoredToken();
+	const init = {
+		method: options.method || "GET",
+		headers,
+		mode: "cors"
+	};
+
+	if (token) {
+		headers.set("Authorization", `Bearer ${token}`);
+	}
+
+	if (options.body !== undefined) {
+		headers.set("Content-Type", "application/json");
+		init.body = JSON.stringify(options.body);
+	}
+
+	const response = await fetch(`${await getBackendBaseUrl()}${path}`, init);
+	const raw = await response.text();
+	let data = {};
+	if (raw) {
+		try {
+			data = JSON.parse(raw);
+		} catch (_) {
+			data = { raw };
+		}
+	}
+
+	if (!response.ok) {
+		const error = new Error(data.error || `Request failed with ${response.status}`);
+		error.status = response.status;
+		error.payload = data;
+		throw error;
+	}
+
+	return data;
+}
+
+async function fetchCurrentUser(force = false) {
+	if (!getStoredToken()) {
+		currentUserPromise = null;
+		return null;
+	}
+	if (!force && currentUserPromise) {
+		return currentUserPromise;
+	}
+
+	currentUserPromise = (async () => {
+		try {
+			const data = await apiFetch("/api/auth/me");
+			return data.user ? data : null;
+		} catch (_) {
+			clearStoredToken();
+			return null;
+		}
+	})();
+
+	return currentUserPromise;
+}
+
+async function hydrateAuthAction() {
+	const action = document.querySelector(".auth-action");
+	if (!action) return;
+
+	action.textContent = "Log In";
+	action.href = `${getRoot()}auth.html`;
+
+	try {
+		const me = await fetchCurrentUser();
+		if (!me?.user) return;
+		action.textContent = me.team ? "My Team" : "Register a Team";
+		action.href = `${getRoot()}team.html`;
+	} catch (_) {
+		// keep the login fallback
+	}
 }
 
 function applyTheme(theme) {
@@ -93,6 +233,7 @@ function buildHeader() {
           ${desktopLinks}
         </nav>
         <div class="header-actions">
+          <a class="header-link auth-action" href="${root}auth.html">Log In</a>
           <button class="theme-toggle" type="button" aria-label="Тъмна тема">Тъмна тема</button>
         </div>
       </div>
@@ -341,8 +482,21 @@ document.addEventListener("DOMContentLoaded", () => {
 	buildSidebar();
 	buildFooter();
 	bindUI();
+	hydrateAuthAction();
 	hydrateCountdowns();
 	initCryptoAnimation();
 	initMiniPlayground();
 	setCurrentYear();
 });
+
+window.HackmePortal = {
+	TRACK_OPTIONS,
+	getRoot,
+	getStoredToken,
+	storeToken,
+	clearStoredToken,
+	fetchCurrentUser,
+	getBackendBaseUrl,
+	apiFetch,
+	hydrateAuthAction
+};
