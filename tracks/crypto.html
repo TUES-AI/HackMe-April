@@ -22,7 +22,7 @@
 	<main class="page-shell">
 		<section class="page-banner reveal visible">
 			<h1>Cipher Hunters</h1>
-			<p>3 задачи, 3 подхода, точни ciphertext-и.</p>
+			<p>3 шифъра с различна трудност, 3 различни начина на мислене и един финален капан със скрит втори слой.</p>
 		</section>
 
 		<section class="feature-split reveal">
@@ -30,7 +30,7 @@
 				<ul class="check-list compact-list">
 					<li>Атакувате 3 текста с различна трудност.</li>
 					<li>Предавате <code>solver/</code>, <code>hypotheses.md</code>, <code>SOURCES_AND_AI.md</code>.</li>
-					<li>Level 1 пази интервали, Level 2 ги маха, Level 3 не е character-level.</li>
+					<li>Level 1 е класически старт, Level 2 иска по-сериозно пренареждане, Level 3 крие шифър в шифъра.</li>
 				</ul>
 			</div>
 			<div class="feature-media">
@@ -59,26 +59,31 @@
 				<article class="artifact-card">
 					<p class="track-tag">Level 1</p>
 					<h3 class="track-title">Vigenere върху български текст</h3>
-					<p>Източникът е кратък поетичен откъс. Интервалите и пунктуацията са запазени.</p>
+					<p>Добър старт за загряване. Източникът е кратък поетичен откъс, а интервалите и пунктуацията са
+						запазени, така че да имате стабилна първа следа.</p>
 					<pre class="code-block cipher-block"><code>НПГЪЛНФ ТНДЕБ, ЮНЮЕЗ ШПОРФХ, ПНЕЦФР ЩБВШЧКТ ВТЦПЪГ
 							ЯНМЕВХХ, ООБР ПЛШДЮР, НЯГМШ ЪОСХН, МАЪЪИШЪГ БНР ХПЩМАШЩР ЧРСФЯ.</code></pre>
 				</article>
 				<article class="artifact-card">
 					<p class="track-tag">Level 2</p>
 					<h3 class="track-title">Affine + columnar transposition</h3>
-					<p>Тук интервалите са махнати и има втори слой за пренареждане на колоните.</p>
+					<p>Тук вече няма удобни интервали. Освен основния шифър има и втори слой за пренареждане, така че
+						ще трябва да мислите не само за символите, а и за подредбата.</p>
 					<pre class="code-block cipher-block"><code>КЛХЖП ЕБНЖН ЦЕЛКБ КДКЛИ РУМНВ УЛДЙФ КЧНШЪ ЯБЧНХ НКНКП
 							ТНБЦК НСПФН НБЖПЬ ЛДЦШЕ МДЛЗЛ ЪГЕЬР ЦБКЕЕ</code></pre>
 				</article>
 				<article class="artifact-card">
 					<p class="track-tag">Level 3</p>
-					<h3 class="track-title">Layered byte/token cipher</h3>
-					<p>Не е character-level. Последователността е правена върху числово представяне и после е
-						пакетирана.</p>
+					<h3 class="track-title">Layered cipher</h3>
+					<p>Това е финалният капан. Първият пробив няма да е краят, защото под този слой има още едно скрито
+						съобщение, което също иска разчитане.</p>
 					<pre class="code-block cipher-block"><code>H DR HS MM SQ 11 E6 G2 M7 XP 4V A1 F4 O1 U9 3T 9N I8 OC
 							W7 2O DW JE PE XT 3V C8 HZ R9 XK 6S C7 GC RT XI 2E 81 KR MG SG V DV I4 NM TE 2H 83 IO NV U6
 							3N 9A I2 O2 W1 25 BI HU QL VZ 5H AA EX M7 YT 5C DO JO RN XJ 28 7Q KX MA Z5 2X 84 EH NG TD 2B
 							85 GA MD VB 1P DG</code></pre>
+					<p class="cipher-block"><strong>Замисъл:</strong><br>Ако разчетете първия слой правилно, ще получите
+						кратко съобщение в духа на:<br>Браво! Първият слой падна. Но задачата още не е свършила.<br><br>Точният
+						вътрешен шифър и крайният отговор не са публикувани тук, за да не изтича решението през frontend-а.</p>
 				</article>
 			</div>
 		</section>
@@ -87,9 +92,9 @@
 			<article class="artifact-card">
 				<h3 class="track-title">Hint policy и добър старт</h3>
 				<ul class="check-list compact-list">
-					<li>Hint-овете ще са за representation level, не за точен ключ.</li>
-					<li>Пишете micro-tools: frequency tables, n-gram checks и token counters.</li>
-					<li>Най-силен е repo trail-ът, в който личи как сте сменяли мнението си.</li>
+					<li>Hint-овете ще са за нивото на представяне, не за точния ключ.</li>
+					<li>Пишете малки помощни програми: честотни таблици, n-gram проверки и търсене на повтарящи се групи.</li>
+					<li>Най-силен е repo trail-ът, в който личи как сте сменяли мнението си и защо.</li>
 				</ul>
 			</article>
 		</section>
