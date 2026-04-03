@@ -101,6 +101,10 @@
     `;
 	}
 
+	function goToTeamPage() {
+		window.location.href = `${portal.getRoot()}team.html`;
+	}
+
 	async function initAuthPage() {
 		const authStatus = byId("auth-status");
 		const sendCodeForm = byId("send-code-form");
@@ -111,7 +115,8 @@
 			const me = await portal.fetchCurrentUser(true);
 			await portal.hydrateAuthAction();
 			if (me?.user) {
-				setStatus(authStatus, "success", me.team ? "You are logged in. You can continue to your team page." : "You are logged in. Continue to team registration.");
+				setStatus(authStatus, "success", me.team ? "You are logged in. Redirecting to your team page..." : "You are logged in. Redirecting to team registration...");
+				window.setTimeout(goToTeamPage, 250);
 				return;
 			}
 			setStatus(authStatus, "muted", "");
