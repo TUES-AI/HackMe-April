@@ -5,7 +5,7 @@ const NAV_GROUPS = [
 			{ id: "home", label: "Начало", href: "index.html" },
 			{ id: "rules", label: "Правила", href: "rules.html" },
 			{ id: "workflow", label: "Как се работи", href: "workflow.html" },
-			{ id: "grading", label: "Награди", href: "grading.html" }
+			{ id: "rewards", label: "Награди", href: "rewards.html" }
 		]
 	},
 	{
