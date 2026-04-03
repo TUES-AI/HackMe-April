@@ -105,33 +105,40 @@
 		window.location.href = `${portal.getRoot()}team.html`;
 	}
 
+	function clearStatuses(...nodes) {
+		nodes.forEach((node) => setStatus(node, "muted", ""));
+	}
+
 	async function initAuthPage() {
-		const authStatus = byId("auth-status");
 		const sendCodeForm = byId("send-code-form");
 		const verifyForm = byId("verify-form");
 		const loginForm = byId("login-form");
+		const requestStatus = byId("request-status");
+		const verifyStatus = byId("verify-status");
+		const loginStatus = byId("login-status");
 
 		const refreshSession = async () => {
 			const me = await portal.fetchCurrentUser(true);
 			await portal.hydrateAuthAction();
 			if (me?.user) {
-				setStatus(authStatus, "success", me.team ? "You are logged in. Redirecting to your team page..." : "You are logged in. Redirecting to team registration...");
+				clearStatuses(requestStatus, verifyStatus, loginStatus);
 				window.setTimeout(goToTeamPage, 250);
 				return;
 			}
-			setStatus(authStatus, "muted", "");
+			clearStatuses(requestStatus, verifyStatus, loginStatus);
 		};
 
 			sendCodeForm?.addEventListener("submit", async (event) => {
 				event.preventDefault();
 				const email = byId("register-email").value.trim().toLowerCase();
-				setStatus(authStatus, "muted", "Sending confirmation code...");
+				clearStatuses(verifyStatus, loginStatus);
+				setStatus(requestStatus, "muted", "Sending confirmation code...");
 				try {
 					const data = await portal.apiFetch("/api/auth/send-code", { method: "POST", token: null, body: { email } });
 					byId("verify-email").value = email;
-					setStatus(authStatus, "success", data.code ? `A confirmation code was sent to ${email}. Dev code: ${data.code}` : `A confirmation code was sent to ${email}.`);
+					setStatus(requestStatus, "success", data.code ? `A confirmation code was sent to ${email}. Dev code: ${data.code}` : `A confirmation code was sent to ${email}.`);
 				} catch (error) {
-					setStatus(authStatus, "error", error.message || "Could not send the confirmation code.");
+					setStatus(requestStatus, "error", error.message || "Could not send the confirmation code.");
 				}
 			});
 
@@ -140,7 +147,8 @@
 			const email = byId("verify-email").value.trim().toLowerCase();
 			const code = byId("verify-code").value.trim();
 			const password = byId("verify-password").value;
-			setStatus(authStatus, "muted", "Verifying code and creating account...");
+			clearStatuses(requestStatus, loginStatus);
+			setStatus(verifyStatus, "muted", "Verifying code and creating account...");
 			try {
 				const data = await portal.apiFetch("/api/auth/verify-code", {
 					method: "POST",
@@ -150,7 +158,7 @@
 				portal.storeToken(data.token);
 				await refreshSession();
 			} catch (error) {
-				setStatus(authStatus, "error", error.message || "Verification failed.");
+				setStatus(verifyStatus, "error", error.message || "Verification failed.");
 			}
 		});
 
@@ -158,7 +166,8 @@
 			event.preventDefault();
 			const email = byId("login-email").value.trim().toLowerCase();
 			const password = byId("login-password").value;
-			setStatus(authStatus, "muted", "Logging in...");
+			clearStatuses(requestStatus, verifyStatus);
+			setStatus(loginStatus, "muted", "Logging in...");
 			try {
 				const data = await portal.apiFetch("/api/auth/login", {
 					method: "POST",
@@ -168,7 +177,7 @@
 				portal.storeToken(data.token);
 				await refreshSession();
 			} catch (error) {
-				setStatus(authStatus, "error", error.message || "Login failed.");
+				setStatus(loginStatus, "error", error.message || "Login failed.");
 			}
 		});
 

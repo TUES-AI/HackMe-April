@@ -22,10 +22,6 @@
 			<p>Log in as a TUES student, verify your school email, and continue to team registration.</p>
 		</section>
 
-		<section class="section reveal">
-			<p id="auth-status" class="status-banner muted" hidden></p>
-		</section>
-
 		<section class="section reveal auth-grid">
 			<article class="artifact-card auth-card">
 				<h2 class="section-title">Request a code</h2>
@@ -37,6 +33,7 @@
 					</label>
 					<button class="btn" type="submit">Send code</button>
 				</form>
+				<p id="request-status" class="status-banner muted" hidden></p>
 			</article>
 
 			<article class="artifact-card auth-card">
@@ -57,6 +54,7 @@
 					</label>
 					<button class="btn" type="submit">Verify and log in</button>
 				</form>
+				<p id="verify-status" class="status-banner muted" hidden></p>
 			</article>
 
 			<article class="artifact-card auth-card auth-card-wide">
@@ -73,13 +71,14 @@
 					</label>
 					<button class="btn" type="submit">Log In</button>
 				</form>
+				<p id="login-status" class="status-banner muted" hidden></p>
 			</article>
 		</section>
 	</main>
 
 	<div id="site-footer"></div>
 	<script src="assets/site.js?v=8"></script>
-	<script src="assets/portal.js?v=3"></script>
+	<script src="assets/portal.js?v=4"></script>
 </body>
 
 </html>
