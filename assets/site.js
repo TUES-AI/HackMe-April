@@ -21,7 +21,7 @@ const NAV_GROUPS = [
 
 const IMPORTANT_DATES = {
 	start: new Date("2026-04-02T09:00:00+03:00"),
-	support: new Date("2026-04-04T11:00:00+03:00"),
+	support: new Date("2026-04-05T11:00:00+03:00"),
 	deadline: new Date("2026-04-25T14:00:00+03:00")
 };
 
@@ -325,7 +325,7 @@ function buildFooter() {
         <div>
           <p class="footer-title">Timeline</p>
           <p>Старт: 2 April 2026</p>
-          <p>Среща: 4 April 2026</p>
+						<p>Среща: 5 April 2026</p>
           <p>Финал: 25 April 2026 · 14:00</p>
         </div>
       </div>
